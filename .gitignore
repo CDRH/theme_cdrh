@@ -1,0 +1,6 @@
+asset/css/style.css.map
+.DS_Store
+
+# To add fields to theme.ini, comment out the following line, 
+# commit changes to config/theme.ini, then un-comment
+# config/theme.ini

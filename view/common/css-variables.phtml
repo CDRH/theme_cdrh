@@ -1,0 +1,87 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+$transparentNav = $this->themeSetting('navbar_transparent');
+?>
+
+<style>
+
+body {
+  --bs-body-color: <?php echo $this->themeSetting('text_color'); ?>;
+}
+
+a {
+  color: <?php echo $this->themeSetting('link_color'); ?>;
+}
+
+a:hover {
+  color: <?php echo $this->themeSetting('link_hover_color'); ?>;
+}
+
+:root, .btn, button {
+  --bs-border-radius: <?php echo $this->themeSetting('border_radius'); ?>px;
+}
+
+.btn, button {
+  background: purple;
+  color: white;
+}
+
+.site-title-container a {
+  color: <?php echo $this->themeSetting('site_title_color'); ?>;
+}
+
+/* Navbar */
+
+.navbar-nav {
+  --bs-nav-link-color: <?php echo $this->themeSetting('navbar_color'); ?>;
+}
+
+.navbar {
+  background-color: <?php echo $this->themeSetting('navbar_bg'); ?>;
+}
+
+.navbar-nav ul {
+  background-color: <?php echo $this->themeSetting('navbar_secondary_bg'); ?>;
+}
+
+.navbar-nav li:hover, 
+.navbar-nav > li > a:hover,
+.navbar-nav > li.active > a:hover {
+  background-color: <?php echo $this->themeSetting('navbar_hover_bg'); ?>;
+  color: <?php echo $this->themeSetting('navbar_hover_color'); ?>;
+}
+
+.navbar-nav > li.active > a {
+  color: <?php echo $this->themeSetting('navbar_active_color'); ?>;
+  background-color: <?php echo $this->themeSetting('navbar_active_bg'); ?>;
+}
+
+.navbar-nav li ul li a {
+  color: <?php echo $this->themeSetting('navbar_secondary_color'); ?>;
+}
+
+.navbar-nav li ul li:hover, 
+.navbar-nav li ul li a:hover,
+.navbar-nav > li.active ul li.active > a:hover {
+  background-color: <?php echo $this->themeSetting('navbar_secondary_hover_bg'); ?>;
+  color: <?php echo $this->themeSetting('navbar_secondary_hover_color'); ?>;
+}
+
+.navbar-nav > li.active ul li.active > a {
+  background-color: <?php echo $this->themeSetting('navbar_secondary_active_bg'); ?>;
+  color: <?php echo $this->themeSetting('navbar_secondary_active_color'); ?>;
+}
+
+<?php if ($transparentNav): ?>
+  .navbar-nav,
+  .navbar-nav ul, 
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li.active > a,
+  .navbar-nav > li ul li a, , 
+  .navbar-nav > li ul li a:hover,
+  .navbar-nav > li.active ul li.active > a {
+    background: transparent !important;
+  }
+<?php endif; ?>
+
+</style>

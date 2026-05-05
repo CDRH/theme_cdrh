@@ -1,0 +1,85 @@
+<?php 
+  // Image assets
+  $footerLogo1 = $this->themeSettingAsset('footer_logo_1');
+  $footerLogo2 = $this->themeSettingAsset('footer_logo_2');
+  $footerLogo3 = $this->themeSettingAsset('footer_logo_3');
+  $footerLogo3 = $this->themeSettingAsset('footer_logo_4');
+  $footerLogo3 = $this->themeSettingAsset('footer_logo_5');
+  $footerLogo3 = $this->themeSettingAsset('footer_logo_6');
+?>
+
+<?php if ($this->themeSetting('content_warning')): ?>
+  <div class="content-warning mb-4 px-2 py-1">
+    <?php echo $this->themeSetting('content_warning'); ?>
+  </div>
+<?php endif; ?>
+
+<div class="footer-logos align-items-center flex-wrap d-flex gap-3 justify-content-center">
+
+  <?php if ($this->themeSetting('footer_logo_1')): ?>
+    <?php if ($this->themeSetting('footer_logo_1_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_1_link'); ?>"><?php endif; ?>
+      <img src="<?php echo $this->themeSettingAssetUrl('footer_logo_1'); ?>" alt="<?php echo $this->themeSettingAsset('footer_logo_1')->altText(); ?>" />
+    <?php if ($this->themeSetting('footer_logo_1_link')): ?></a><?php endif; ?>
+  <?php elseif ($this->themeSetting('footer_logo_1_text')): ?>
+    <?php if ($this->themeSetting('footer_logo_1_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_1_link'); ?>"><?php endif; ?>
+      <span class="sponsor-name"><?php echo $this->themeSetting('footer_logo_1_text'); ?></span>
+    <?php if ($this->themeSetting('footer_logo_1_link')): ?></a><?php endif; ?>          
+  <?php endif; ?>
+
+    <?php if ($this->themeSetting('footer_logo_2')): ?>
+    <?php if ($this->themeSetting('footer_logo_2_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_2_link'); ?>"><?php endif; ?>
+      <img src="<?php echo $this->themeSettingAssetUrl('footer_logo_2'); ?>" alt="<?php echo $this->themeSettingAsset('footer_logo_2')->altText(); ?>" />
+    <?php if ($this->themeSetting('footer_logo_2_link')): ?></a><?php endif; ?>
+  <?php elseif ($this->themeSetting('footer_logo_2_text')): ?>
+    <?php if ($this->themeSetting('footer_logo_2_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_2_link'); ?>"><?php endif; ?>
+      <span class="sponsor-name"><?php echo $this->themeSetting('footer_logo_2_text'); ?></span>
+    <?php if ($this->themeSetting('footer_logo_2_link')): ?></a><?php endif; ?>          
+  <?php endif; ?>
+
+  <?php if ($this->themeSetting('footer_logo_3')): ?>
+    <?php if ($this->themeSetting('footer_logo_3_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_3_link'); ?>"><?php endif; ?>
+      <img src="<?php echo $this->themeSettingAssetUrl('footer_logo_3'); ?>" alt="<?php echo $this->themeSettingAsset('footer_logo_3')->altText(); ?>" />
+    <?php if ($this->themeSetting('footer_logo_3_link')): ?></a><?php endif; ?>
+  <?php elseif ($this->themeSetting('footer_logo_3_text')): ?>
+    <?php if ($this->themeSetting('footer_logo_3_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_3_link'); ?>"><?php endif; ?>
+      <span class="sponsor-name"><?php echo $this->themeSetting('footer_logo_3_text'); ?></span>
+    <?php if ($this->themeSetting('footer_logo_3_link')): ?></a><?php endif; ?>          
+  <?php endif; ?>
+
+  <?php if ($this->themeSetting('footer_logo_4')): ?>
+    <?php if ($this->themeSetting('footer_logo_4_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_4_link'); ?>"><?php endif; ?>
+      <img src="<?php echo $this->themeSettingAssetUrl('footer_logo_4'); ?>" alt="<?php echo $this->themeSettingAsset('footer_logo_4')->altText(); ?>" />
+    <?php if ($this->themeSetting('footer_logo_4_link')): ?></a><?php endif; ?>
+  <?php elseif ($this->themeSetting('footer_logo_4_text')): ?>
+    <?php if ($this->themeSetting('footer_logo_4_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_4_link'); ?>"><?php endif; ?>
+     <span class="sponsor-name"></span> <?php echo $this->themeSetting('footer_logo_4_text'); ?></span>
+    <?php if ($this->themeSetting('footer_logo_4_link')): ?></a><?php endif; ?>          
+  <?php endif; ?>
+
+  <?php if ($this->themeSetting('footer_logo_5')): ?>
+    <?php if ($this->themeSetting('footer_logo_5_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_5_link'); ?>"><?php endif; ?>
+      <img src="<?php echo $this->themeSettingAssetUrl('footer_logo_5'); ?>" alt="<?php echo $this->themeSettingAsset('footer_logo_5')->altText(); ?>" />
+    <?php if ($this->themeSetting('footer_logo_5_link')): ?></a><?php endif; ?>
+  <?php elseif ($this->themeSetting('footer_logo_5_text')): ?>
+    <?php if ($this->themeSetting('footer_logo_5_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_5_link'); ?>"><?php endif; ?>
+      <span class="sponsor-name"><?php echo $this->themeSetting('footer_logo_5_text'); ?></span>
+    <?php if ($this->themeSetting('footer_logo_5_link')): ?></a><?php endif; ?>          
+  <?php endif; ?>
+
+  <?php if ($this->themeSetting('footer_logo_6')): ?>
+    <?php if ($this->themeSetting('footer_logo_6_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_6_link'); ?>"><?php endif; ?>
+      <img src="<?php echo $this->themeSettingAssetUrl('footer_logo_6'); ?>" alt="<?php echo $this->themeSettingAsset('footer_logo_6')->altText(); ?>" />
+    <?php if ($this->themeSetting('footer_logo_6_link')): ?></a><?php endif; ?>
+  <?php elseif ($this->themeSetting('footer_logo_6_text')): ?>
+    <?php if ($this->themeSetting('footer_logo_6_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_6_link'); ?>"><?php endif; ?>
+      <span class="sponsor-name"><?php echo $this->themeSetting('footer_logo_6_text'); ?></span>
+    <?php if ($this->themeSetting('footer_logo_6_link')): ?></a><?php endif; ?>          
+  <?php endif; ?>
+
+</div><?php // end div.footer-logos ?>
+
+<?php if ($this->themeSetting('footer_text')): ?>
+  <div class="footer-text mt-4 px-2 py-1 d-inline-block m-auto">
+    <?php echo $this->themeSetting('footer_text'); ?>
+  </div>
+<?php endif; ?>

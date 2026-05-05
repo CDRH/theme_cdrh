@@ -1,0 +1,107 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+$translate = $this->plugin('translate');
+$siteTitle = $site->title();
+$siteSubtitle = $this->themeSetting('site_subtitle');
+$browseBodyTruncation = ($this->themeSetting('browse_body_truncation')) ? $this->themeSetting('browse_body_truncation') : 'fade';
+$banner = $this->themeSettingAssetUrl('banner');
+$bannerBackground = $this->themeSetting('bg_banner');
+$bsContainerClasses = "container";
+$ulClasses = 'navbar-nav';
+$collapseMenu = $this->themeSetting('collapse_menu');
+
+if ($this->themeSetting('show_secondary_menu')):
+  $navDepth = 1;
+else:
+  $navDepth = 0;
+endif; 
+
+$this->htmlElement('html')->setAttribute('lang', $this->lang());
+$this->headMeta()->setCharset('utf-8');
+$this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
+$this->headTitle($siteTitle)->setSeparator(' | ');
+$this->headTitle()->append($this->setting('installation_title', 'Omeka S'));
+
+// CSS
+$this->headLink()->prependStylesheet($this->assetUrl('css/style.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
+$this->headLink()->prependStylesheet($this->assetUrl('vendor/bootstrap/css/bootstrap.min.css'));
+
+// JS
+$this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
+$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
+$this->headScript()->appendFile($this->assetUrl('vendor/bootstrap/js/bootstrap.bundle.min.js')); 
+// To move this scripts to the bottom of the file, use Zend Framework's inlineScript function
+
+$this->jsTranslate();
+$this->htmlElement('body')->appendAttribute('class', 'body-truncate-' . $browseBodyTruncation);
+$this->trigger('view.layout'); 
+$userBar = $this->userBar();
+?>
+
+<?php echo $this->doctype(); ?>
+<?php echo $this->htmlElement('html'); ?>
+  <head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink(); ?>
+    <?php echo $this->headStyle(); ?>
+    <?php echo $this->headScript(); ?>
+    <?php echo $this->partial('common/css-variables.phtml'); ?>
+  </head>
+
+  <?php echo $this->htmlElement('body'); ?>
+    <div id="body-wrapper">
+      <?php if ($banner): ?>
+        <header id="header" class="banner" style="background-image: url(<?php echo $banner; ?>);">
+        <?php else: ?>
+        <header id="header">
+      <?php endif; ?>
+
+        <a id="skipnav"class="sr-only sr-only-focusable" href="#main_content"><?php echo $this->translate('Skip to main content'); ?></a>
+        
+        <?php echo $userBar; ?>
+
+        <div class="site-title-container">
+          <div class="<?php echo $bsContainerClasses; ?>">
+            <a href="<?php echo $site->url(); ?>">
+              <span class="site-title"><?php echo $escape($siteTitle); ?></span>
+              <span class="site-subtitle"><?php echo $escape($siteSubtitle); ?></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar navbar-expand<?php if ($collapseMenu != "none") echo "-" . $collapseMenu; ?>">
+          <button class="navbar-toggler ms-auto me-2 my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <nav class="navbar navbar-primary 
+            d<?php if ($collapseMenu != "none") echo "-" . $collapseMenu; ?>-flex 
+            justify-content<?php if ($collapseMenu != "none") echo "-" . $collapseMenu; ?>-center"
+            aria-label="Main Menu">
+              <?php echo $site->publicNav()->menu()->setMinDepth(0)->setMaxDepth($navDepth)->setUlClass($ulClasses); ?>
+            </nav>
+          </div>
+        </div>
+
+      </header>
+
+      <main id="main_content">
+        <div class="<?php echo $bsContainerClasses; ?>">
+          <?php echo $this->content; ?>
+        </div>
+      </main>
+
+      <footer id="footer" class="text-center">
+        <div class="<?php echo $bsContainerClasses; ?>">
+          <?php echo $this->partial('common/footer.phtml'); ?>
+        </div>
+
+        <div class="back-to-top">
+          <a href="#main_content">Back to top</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

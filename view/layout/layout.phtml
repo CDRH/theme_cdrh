@@ -76,9 +76,7 @@ $userBar = $this->userBar();
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarMainMenu">
-            <nav class="navbar navbar-primary 
-            d<?php if ($breakpoint != "-none") echo $breakpoint; ?>-flex 
-            <?php if ($centerMenu): ?>justify-content<?php if ($breakpoint != "-none") echo $breakpoint; ?>-center<?php endif; ?>"
+            <nav class="navbar navbar-primary d<?php if ($breakpoint != "-none") echo $breakpoint; ?>-flex<?php if ($centerMenu): ?> justify-content<?php if ($breakpoint != "-none") echo $breakpoint; ?>-center<?php endif; ?>"
             aria-label="Main Menu">
               <?php echo $site->publicNav()->menu()->setMinDepth(0)->setMaxDepth($navDepth)->setUlClass($ulClasses); ?>
             </nav>

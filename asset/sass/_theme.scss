@@ -1,3 +1,54 @@
+// Body layout - stick footer to bottom of window
+
+#body-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+// General styles
+
+
+blockquote {
+  margin: 0 2rem 1rem 2rem;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+// Main
+
+#main_content {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+// Header
+
+.site-title-container a {
+  display: block;
+  margin-bottom: var(--cdrh-site-title-margin-mobile);
+  margin-top: var(--cdrh-site-title-margin-mobile);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .site-title {
+    display: block;
+    font-size: var(--cdrh-site-title-size-mobile);
+  }
+
+  .site-subtitle {
+    display: block;
+    font-size: calc(var(--cdrh-site-title-size-mobile) * 0.67);
+  }
+}
 // Bootstrap 5 .nav-link styles
 .navbar-nav li a {
   display: block;
@@ -44,7 +95,6 @@
   #navbarMainMenu {
     .navbar-nav {
       height: var(--cdrh-navbar-height);
-      justify-content: center;
 
       &:has(li.active ul) {
         margin-bottom: var(--cdrh-navbar-secondary-height);
@@ -56,7 +106,7 @@
           align-items: center;
           display: flex;
           height: 100%;
-          padding: 0.25rem var(--bs-nav-link-padding-x);
+          padding: 0.25rem 1rem;
           text-align: center;
         }
 
@@ -64,17 +114,8 @@
           padding-left: 0;
 
           a {
-            padding-left: var(--bs-nav-link-padding-x);
+            padding: 0.25rem 1rem;
           }
-        }
-
-        &.active ul {
-          flex-direction: row;
-          height: var(--cdrh-navbar-secondary-height);
-          justify-content: center;
-          left: 0;
-          position: absolute;
-          right: 0;
         }
       }
     }
@@ -117,3 +158,54 @@ button {
   background-color: var(--bs-btn-bg);
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+// Footer
+
+#footer {
+  padding: 2rem 0;
+}
+
+.footer-logos {
+  gap: 2rem 3rem; 
+
+  a {
+    display: inline-block;
+    max-height: 100px;
+    max-width: 400px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .sponsor-name {
+      display: inline-block;
+      padding: 1.25rem 2rem;
+    }
+  }
+}
+
+.back-to-top a {
+  background: #fff;
+  border: 1px solid #BBBBBB;
+  bottom: 0;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.15);
+  padding: 0.25rem 1rem 0.25rem 1rem;
+  position: fixed;
+  right: 2%;
+  text-decoration: none;
+  z-index: 1000;
+
+  &:hover {
+    background-color: #DDDDDD;
+    color: #000;
+  }
+
+  &:after {
+    content: "\2191";
+    position: relative;
+    top: -1px;
+    left: 6px;
+  }
+}
+

@@ -1,10 +1,18 @@
 <?php
+// This partial, called in the <head> of layout.phtml, contains ONLY the  
+// code necessary for applying theme settings to the site's CSS. 
+// All other CSS should be generated via theme SASS or the CSS Editor module. 
+// 
+// See theme.ini for full list of available variables, keys, and values.
+
 $escape = $this->plugin('escapeHtml');
 $transparentNav = $this->themeSetting('navbar_transparent');
+$breakpoint = $this->themeSetting('collapse_menu');
 ?>
 
 <style>
 
+/* General */
 body {
   --bs-body-color: <?php echo $this->themeSetting('text_color'); ?>;
 }
@@ -26,11 +34,12 @@ a:hover {
   color: white;
 }
 
+/* Site title */
 .site-title-container a {
   color: <?php echo $this->themeSetting('site_title_color'); ?>;
 }
 
-/* Navbar */
+/* Navbar colors */
 
 .navbar-nav {
   --bs-nav-link-color: <?php echo $this->themeSetting('navbar_color'); ?>;
@@ -72,6 +81,7 @@ a:hover {
   color: <?php echo $this->themeSetting('navbar_secondary_active_color'); ?>;
 }
 
+/* Navbar transparent background */
 <?php if ($transparentNav): ?>
   .navbar-nav,
   .navbar-nav ul, 
@@ -83,5 +93,55 @@ a:hover {
     background: transparent !important;
   }
 <?php endif; ?>
+
+
+/* Breakpoint-dependent styles */
+<?php if ($breakpoint != "none"): ?>
+  :root {
+    --cdrh-navbar-height: initial;
+    --cdrh-navbar-secondary-height: initial; 
+  }
+
+  <?php if ($breakpoint === "md") echo '@media screen and (min-width: 768px)'; ?>
+  <?php if ($breakpoint === "lg") echo '@media screen and (min-width: 992px)'; ?> {
+    :root {
+      --cdrh-navbar-height: <?php echo $this->themeSetting('navbar_height'); ?>;
+      --cdrh-navbar-secondary-height: <?php echo $this->themeSetting('navbar_secondary_height'); ?>
+    }
+
+    #navbarMainMenu .navbar-nav li.active ul {
+      flex-direction: row;
+      height: var(--cdrh-navbar-secondary-height);
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+    <?php if ($this->themeSetting('center_header')): ?>
+        #navbarMainMenu .navbar-nav,
+        #navbarMainMenu .navbar-nav li.active ul {
+            justify-content: center;
+      }
+    <?php endif; ?>
+
+    .site-title-container a {
+      margin-bottom: var(--cdrh-site-title-margin);
+      margin-top: var(--cdrh-site-title-margin);
+    }
+
+    .site-title-container a .site-title {
+      font-size: var(--cdrh-site-title-size);
+    }
+
+    .site-title-container a .site-subtitle {
+      font-size: calc(var(--cdrh-site-title-size) * 0.67);
+    }
+  }
+<?php endif; ?>
+
+/* Footer */
+
+#footer {
+  background-color: <?php echo $this->themeSetting('footer_bg'); ?>;
+}
 
 </style>

@@ -3,6 +3,11 @@
 :root {
   --cdrh-navbar-height: 3rem;
   --cdrh-navbar-secondary-height: calc(var(--cdrh-navbar-height) * 0.75);
+  --cdrh-desktop-to-mobile-ratio: 0.8;
+  --cdrh-site-title-margin: 2rem;
+  --cdrh-site-title-margin-mobile: calc(var(--cdrh-site-title-margin) * var(--cdrh-desktop-to-mobile-ratio));
+  --cdrh-site-title-size: 2.5rem;
+  --cdrh-site-title-size-mobile: calc(var(--cdrh-site-title-size) * var(--cdrh-desktop-to-mobile-ratio));
 }
 
 // Bootstrap variables

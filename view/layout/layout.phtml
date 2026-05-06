@@ -8,7 +8,7 @@ $banner = $this->themeSettingAssetUrl('banner');
 $bannerBackground = $this->themeSetting('bg_banner');
 $bsContainerClasses = "container";
 $ulClasses = 'navbar-nav';
-$collapseMenu = $this->themeSetting('collapse_menu');
+$breakpoint = '-' . $this->themeSetting('collapse_menu');
 
 if ($this->themeSetting('show_secondary_menu')):
   $navDepth = 1;
@@ -62,7 +62,7 @@ $userBar = $this->userBar();
         
         <?php echo $userBar; ?>
 
-        <div class="site-title-container">
+        <div class="site-title-container<?php if ($this->themeSetting('center_header')): ?> text-center<?php endif; ?>">
           <div class="<?php echo $bsContainerClasses; ?>">
             <a href="<?php echo $site->url(); ?>">
               <span class="site-title"><?php echo $escape($siteTitle); ?></span>
@@ -71,14 +71,14 @@ $userBar = $this->userBar();
           </div>
         </div>
 
-        <div class="navbar navbar-expand<?php if ($collapseMenu != "none") echo "-" . $collapseMenu; ?>">
+        <div class="navbar navbar-expand<?php if ($breakpoint != "-none") echo $breakpoint; ?>">
           <button class="navbar-toggler ms-auto me-2 my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarMainMenu">
             <nav class="navbar navbar-primary 
-            d<?php if ($collapseMenu != "none") echo "-" . $collapseMenu; ?>-flex 
-            justify-content<?php if ($collapseMenu != "none") echo "-" . $collapseMenu; ?>-center"
+            d<?php if ($breakpoint != "-none") echo $breakpoint; ?>-flex 
+            <?php if ($centerMenu): ?>justify-content<?php if ($breakpoint != "-none") echo $breakpoint; ?>-center"<?php endif; ?>
             aria-label="Main Menu">
               <?php echo $site->publicNav()->menu()->setMinDepth(0)->setMaxDepth($navDepth)->setUlClass($ulClasses); ?>
             </nav>
@@ -93,7 +93,7 @@ $userBar = $this->userBar();
         </div>
       </main>
 
-      <footer id="footer" class="text-center">
+      <footer id="footer"<?php if ($this->themeSetting('center_footer')): ?> class="text-center"<?php endif; ?>>
         <div class="<?php echo $bsContainerClasses; ?>">
           <?php echo $this->partial('common/footer.phtml'); ?>
         </div>

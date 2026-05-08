@@ -95,16 +95,6 @@
       <span class="sponsor-name"><?php echo $this->themeSetting('footer_logo_8_text'); ?></span>
     <?php if ($this->themeSetting('footer_logo_8_link')): ?></a><?php endif; ?>          
   <?php endif; ?>
-  
-  <?php if ($this->themeSetting('footer_logo_9')): ?>
-    <?php if ($this->themeSetting('footer_logo_9_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_9_link'); ?>"><?php endif; ?>
-      <img src="<?php echo $this->themeSettingAssetUrl('footer_logo_9'); ?>" alt="<?php echo $this->themeSettingAsset('footer_logo_9')->altText(); ?>" />
-    <?php if ($this->themeSetting('footer_logo_9_link')): ?></a><?php endif; ?>
-  <?php elseif ($this->themeSetting('footer_logo_9_text')): ?>
-    <?php if ($this->themeSetting('footer_logo_9_link')): ?><a href="<?php echo $this->themeSetting('footer_logo_9_link'); ?>"><?php endif; ?>
-      <span class="sponsor-name"><?php echo $this->themeSetting('footer_logo_9_text'); ?></span>
-    <?php if ($this->themeSetting('footer_logo_9_link')): ?></a><?php endif; ?>          
-  <?php endif; ?>
 
 </div><?php // end div.footer-logos ?>
 

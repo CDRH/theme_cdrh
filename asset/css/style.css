@@ -12,6 +12,10 @@ blockquote {
   margin: 0 2rem 1rem 2rem;
 }
 
+a {
+  color: var(--bs-link-color);
+  opacity: 1;
+}
 a:hover {
   text-decoration-thickness: 2px;
 }
@@ -182,6 +186,27 @@ button {
 }
 
 :root {
+  --cdrh-font-sans-serif-stack: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  --cdrh-font-serif-stack: Georgia, "Times New Roman", Times, serif;
+  --cdrh-font-serif: var(--cdrh-font-serif-stack);
+  --bs-font-sans-serif: var(--cdrh-font-sans-serif-stack);
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --cdrh-headings-font: var(--bs-body-font-family);
+  --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+:root,
+.btn,
+button {
+  --bs-btn-font-family: var(--bs-font-sans-serif);
+}
+
+.navbar-nav {
+  --bs-nav-link-padding-x: 0.5rem;
+  --bs-nav-link-padding-y: 0.5rem;
+}
+
+:root {
   --bs-breakpoint-xs: 0;
   --bs-breakpoint-sm: 576px;
   --bs-breakpoint-md: 768px;
@@ -256,10 +281,7 @@ button {
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255,255,255;
   --bs-black-rgb: 0,0,0;
-  --bs-font-sans-serif: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -314,7 +336,6 @@ button {
 button {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
-  --bs-btn-font-family: ;
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
@@ -352,9 +373,7 @@ button {
   --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
 }
 
-.navbar-nav {
-  --bs-nav-link-padding-x: 0.5rem;
-  --bs-nav-link-padding-y: 0.5rem;
+.navar-nav {
   --bs-nav-link-font-weight: ;
   --bs-nav-link-color: var(--bs-navbar-color);
   --bs-nav-link-hover-color: var(--bs-navbar-hover-color);

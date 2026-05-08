@@ -6,32 +6,79 @@
 // See theme.ini for full list of available variables, keys, and values.
 
 $escape = $this->plugin('escapeHtml');
-$transparentNav = $this->themeSetting('navbar_transparent');
-$breakpoint = $this->themeSetting('collapse_menu');
+$transparentNav = $this->themeSetting('navbar_1_transparent');
+$breakpoint = $this->themeSetting('breakpoint');
+$bodyStyle = $this->themeSetting('font_body');
+$headingsStyle = $this->themeSetting('font_style_headings');
+$headingsFont = $this->themeSetting('font_headings'); 
 ?>
 
 <style>
 
 /* General */
-body {
+
+:root, [data-bs-theme="light"] {
+  --bs-body-bg: <?php echo $this->themeSetting('bg_color'); ?>;
   --bs-body-color: <?php echo $this->themeSetting('text_color'); ?>;
+  --bs-body-font-size: <?php echo $this->themeSetting('font_size'); ?>;
+  --bs-primary: <?php echo $this->themeSetting('btn_primary_bg') ?>;
+  --bs-secondary: <?php echo $this->themeSetting('btn_secondary_bg') ?>;
 }
 
-a {
-  color: <?php echo $this->themeSetting('link_color'); ?>;
+body {
 }
 
-a:hover {
-  color: <?php echo $this->themeSetting('link_hover_color'); ?>;
+:root, a {
+  --bs-link-color: <?php echo $this->themeSetting('link_color'); ?>;
 }
 
-:root, .btn, button {
+:root, a:hover {
+  --bs-link-hover-color: <?php echo $this->themeSetting('link_hover_color'); ?>;
+}
+
+a:visited {
+  color: <?php echo $this->themeSetting('visited_color'); ?>;
+}
+
+/* Fonts */
+
+:root,
+body {
+  <?php if ($this->themeSetting('font_sans')) echo '--bs-font-sans-serif: ' . $this->themeSetting('font_sans') . ', var(--cdrh-font-sans-serif-stack);'; ?>
+  <?php if ($this->themeSetting('font_serif')) echo '--cdrh-font-serif: ' . $this->themeSetting('font_serif') . ', var(--cdrh-font-serif-stack);'; ?>
+  <?php if ($bodyStyle === "serif") echo '--bs-body-font-family: var(--cdrh-font-serif)'; 
+  // --bs-body-font-family default is --bs-body-font-sans so no code is needed here
+  ?>;
+}
+
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  <?php if ($headingsFont): ?>
+    <?php if ($headingsStyle === "serif"): ?>
+      --cdrh-headings-font-family: <?php echo $headingsFont; ?>, var(--cdrh-font-serif);
+    <?php elseif ($headingsStyle === "sans"): ?>
+      --cdrh-headings-font-family: <?php echo $headingsFont; ?>, var(--bs-font-sans-serif);
+    <?php endif; ?>
+  <?php elseif ($headingsStyle): ?>
+    <?php if ($headingsStyle === "serif"): ?>
+      --cdrh-headings-font-family: var(--cdrh-font-serif);
+    <?php elseif ($headingsStyle === "sans"): ?>
+      --cdrh-headings-font-family: var(--bs-font-sans-serif);
+    <?php endif; ?>
+  <?php endif; ?>
+}
+
+/* Buttons */
+
+:root, .btn, button, .btn-primary {
   --bs-border-radius: <?php echo $this->themeSetting('border_radius'); ?>px;
+  --bs-btn-color: <?php echo $this->themeSetting('btn_primary'); ?>;
+  --btn-btn-bg: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
 }
 
-.btn, button {
-  background: purple;
-  color: white;
+.btn-secondary {
+  --bs-btn-color: <?php echo $this->themeSetting('btn_primary'); ?>;
+  --btn-btn-bg: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
 }
 
 /* Site title */
@@ -42,43 +89,43 @@ a:hover {
 /* Navbar colors */
 
 .navbar-nav {
-  --bs-nav-link-color: <?php echo $this->themeSetting('navbar_color'); ?>;
+  --bs-nav-link-color: <?php echo $this->themeSetting('navbar_1_color'); ?>;
 }
 
 .navbar {
-  background-color: <?php echo $this->themeSetting('navbar_bg'); ?>;
+  background-color: <?php echo $this->themeSetting('navbar_1_bg'); ?>;
 }
 
 .navbar-nav ul {
-  background-color: <?php echo $this->themeSetting('navbar_secondary_bg'); ?>;
+  background-color: <?php echo $this->themeSetting('navbar_2_bg'); ?>;
 }
 
 .navbar-nav li:hover, 
 .navbar-nav > li > a:hover,
 .navbar-nav > li.active > a:hover {
-  background-color: <?php echo $this->themeSetting('navbar_hover_bg'); ?>;
-  color: <?php echo $this->themeSetting('navbar_hover_color'); ?>;
+  background-color: <?php echo $this->themeSetting('navbar_1_hover_bg'); ?>;
+  color: <?php echo $this->themeSetting('navbar_1_hover_color'); ?>;
 }
 
 .navbar-nav > li.active > a {
-  color: <?php echo $this->themeSetting('navbar_active_color'); ?>;
-  background-color: <?php echo $this->themeSetting('navbar_active_bg'); ?>;
+  color: <?php echo $this->themeSetting('navbar_1_active_color'); ?>;
+  background-color: <?php echo $this->themeSetting('navbar_1_active_bg'); ?>;
 }
 
 .navbar-nav li ul li a {
-  color: <?php echo $this->themeSetting('navbar_secondary_color'); ?>;
+  color: <?php echo $this->themeSetting('navbar_2_color'); ?>;
 }
 
 .navbar-nav li ul li:hover, 
 .navbar-nav li ul li a:hover,
 .navbar-nav > li.active ul li.active > a:hover {
-  background-color: <?php echo $this->themeSetting('navbar_secondary_hover_bg'); ?>;
-  color: <?php echo $this->themeSetting('navbar_secondary_hover_color'); ?>;
+  background-color: <?php echo $this->themeSetting('navbar_2_hover_bg'); ?>;
+  color: <?php echo $this->themeSetting('navbar_2_hover_color'); ?>;
 }
 
 .navbar-nav > li.active ul li.active > a {
-  background-color: <?php echo $this->themeSetting('navbar_secondary_active_bg'); ?>;
-  color: <?php echo $this->themeSetting('navbar_secondary_active_color'); ?>;
+  background-color: <?php echo $this->themeSetting('navbar_2_active_bg'); ?>;
+  color: <?php echo $this->themeSetting('navbar_2_active_color'); ?>;
 }
 
 /* Navbar transparent background */
@@ -92,7 +139,7 @@ a:hover {
   .navbar-nav > li.active ul li.active > a {
     background: transparent !important;
   }
-<?php endif; ?>
+<?php endif; // end if transparentNav ?>
 
 
 /* Breakpoint-dependent styles */
@@ -102,11 +149,12 @@ a:hover {
     --cdrh-navbar-secondary-height: initial; 
   }
 
+  /* begin @media screen and (min-width: __) */
   <?php if ($breakpoint === "md") echo '@media screen and (min-width: 768px)'; ?>
   <?php if ($breakpoint === "lg") echo '@media screen and (min-width: 992px)'; ?> {
     :root {
-      --cdrh-navbar-height: <?php echo $this->themeSetting('navbar_height'); ?>;
-      --cdrh-navbar-secondary-height: <?php echo $this->themeSetting('navbar_secondary_height'); ?>
+      --cdrh-navbar-height: <?php echo $this->themeSetting('navbar_1_height'); ?>;
+      --cdrh-navbar-secondary-height: <?php echo $this->themeSetting('navbar_2_height'); ?>
     }
 
     #navbarMainMenu .navbar-nav li.active ul {
@@ -116,12 +164,13 @@ a:hover {
       position: absolute;
       right: 0;
     }
+
     <?php if ($this->themeSetting('center_header')): ?>
         #navbarMainMenu .navbar-nav,
         #navbarMainMenu .navbar-nav li.active ul {
             justify-content: center;
       }
-    <?php endif; ?>
+    <?php endif; // endif center_header ?>
 
     .site-title-container a {
       margin-bottom: var(--cdrh-site-title-margin);
@@ -136,12 +185,16 @@ a:hover {
       font-size: calc(var(--cdrh-site-title-size) * 0.67);
     }
   }
-<?php endif; ?>
+<?php endif; // end if ($breakpoint != "none") ?>
 
 /* Footer */
 
 #footer {
   background-color: <?php echo $this->themeSetting('footer_bg'); ?>;
+}
+
+.footer-logo .sponsor-name {
+ background-color: <?php echo $this->themeSEtting('logo_bg'); ?>;
 }
 
 </style>

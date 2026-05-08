@@ -2,15 +2,16 @@
 $escape = $this->plugin('escapeHtml');
 $translate = $this->plugin('translate');
 $siteTitle = $site->title();
-$siteSubtitle = $this->themeSetting('site_subtitle');
+$headerTitle = $this->themeSetting('header_title');
+$headerSubtitle = $this->themeSetting('header_subtitle');
 $browseBodyTruncation = ($this->themeSetting('browse_body_truncation')) ? $this->themeSetting('browse_body_truncation') : 'fade';
 $banner = $this->themeSettingAssetUrl('banner');
 $bannerBackground = $this->themeSetting('bg_banner');
 $bsContainerClasses = "container";
 $ulClasses = 'navbar-nav';
-$breakpoint = '-' . $this->themeSetting('collapse_menu');
+$breakpoint = '-' . $this->themeSetting('breakpoint');
 
-if ($this->themeSetting('show_secondary_menu')):
+if ($this->themeSetting('show_navbar_2')):
   $navDepth = 1;
 else:
   $navDepth = 0;
@@ -65,8 +66,8 @@ $userBar = $this->userBar();
         <div class="site-title-container<?php if ($this->themeSetting('center_header')): ?> text-center<?php endif; ?>">
           <div class="<?php echo $bsContainerClasses; ?>">
             <a href="<?php echo $site->url(); ?>">
-              <span class="site-title"><?php echo $escape($siteTitle); ?></span>
-              <span class="site-subtitle"><?php echo $escape($siteSubtitle); ?></span>
+              <span class="site-title"><?php echo $escape($headerTitle); ?></span>
+              <span class="site-subtitle"><?php echo $escape($headerSubtitle); ?></span>
             </a>
           </div>
         </div>

@@ -25,9 +25,6 @@ $headingsFont = $this->themeSetting('font_headings');
   --bs-secondary: <?php echo $this->themeSetting('btn_secondary_bg') ?>;
 }
 
-body {
-}
-
 :root, a {
   --bs-link-color: <?php echo $this->themeSetting('link_color'); ?>;
 }
@@ -73,12 +70,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 :root, .btn, button, .btn-primary {
   --bs-border-radius: <?php echo $this->themeSetting('border_radius'); ?>px;
   --bs-btn-color: <?php echo $this->themeSetting('btn_primary'); ?>;
-  --btn-btn-bg: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
+  --bs-btn-bg: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
+  --bs-btn-border-color: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
 }
 
 .btn-secondary {
-  --bs-btn-color: <?php echo $this->themeSetting('btn_primary'); ?>;
-  --btn-btn-bg: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
+  --bs-btn-color: <?php echo $this->themeSetting('btn_secondary'); ?>;
+  --bs-btn-bg: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
+  --bs-btn-border-color: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
 }
 
 /* Site title */
@@ -197,4 +196,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
  background-color: <?php echo $this->themeSEtting('logo_bg'); ?>;
 }
 
+/* Faceted Browse */
+<?php if ($this->themeSetting('faceted_browse_gallery')): ?>
+
+<?php endif; ?>
 </style>

@@ -167,6 +167,7 @@ button {
   --bs-form-invalid-border-color: #dc3545;
 }
 
+:root, 
 .btn,
 button {
   --bs-btn-padding-x: 0.75rem;
@@ -185,6 +186,7 @@ button {
   --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
 }
 
+:root, 
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0;
@@ -208,6 +210,7 @@ button {
   --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
 }
 
+:root, 
 .navar-nav {
   --bs-nav-link-font-weight: ;
   --bs-nav-link-color: var(--bs-navbar-color);

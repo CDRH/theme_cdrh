@@ -163,6 +163,27 @@ button {
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.select-list-expand {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background-color: var(--bs-btn-bg);
+  border-radius: var(--bs-btn-border-radius);
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+  color: var(--bs-btn-color);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--bs-btn-font-family);
+  font-size: var(--bs-btn-font-size);
+  font-weight: var(--bs-btn-font-weight);
+  line-height: var(--bs-btn-line-height);
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  text-align: center;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  user-select: none;
+  vertical-align: middle;
+}
+
 // Footer
 
 #footer {
@@ -213,3 +234,83 @@ button {
   }
 }
 
+/* Browse Controls site-wide */
+
+.browse-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  margin: 15px 5px 0px 5px;
+  row-gap: 6px;
+
+  form.sorting {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: end;
+  }
+}
+
+.pagination {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  input {
+    padding: 4px;
+  }
+
+  .pagination-buttons .button {
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 0px;
+    color: rgba(0,0,0,0.5);
+    margin: 0px 2px;
+    padding: 4px 6px;
+
+    &:not(.inactive) {
+      background: var(--bs-link-color);
+      border-color: var(--bs-link-color);
+      color: white;
+
+      &:hover {
+        background: var(--bs-link-hover-color);
+        border-color: var(--bs-link-hover-color);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #main_content .browse-controls {
+    justify-content: space-between;
+  }
+}
+
+// Faceted Browse
+
+// Fix misalignment problems
+
+#section-sidebar-modal-toggle {
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#section-sidebar button.close-button {
+  font-size: 1.5rem;
+  right: -4px;
+  top: -4px;
+}
+
+@media print, screen and (max-width: 39.9988em) {
+  .faceted-browse-page #section-sidebar.open {
+    padding-top: 55px; // keep instructions from overlapping with x
+  }
+}
+
+@media screen and (min-width: 40em) {
+  #helper-text-expand-collapse,
+  #helper-text {
+    margin-right: 0 !important;
+  }
+}

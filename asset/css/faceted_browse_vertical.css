@@ -1,0 +1,75 @@
+/* Gallery page styles - 
+should match all gallery CSS styles */
+
+
+.tablesaw-advance {
+  display: none;
+}
+
+.tablesaw thead {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.tablesaw tbody {
+  display: grid;
+  gap: 48px 24px;
+}
+
+.tablesaw tr td {
+  border-bottom: 0;
+  max-width: initial;
+  min-width: initial;
+  padding: initial;
+  width: initial;
+}
+
+.tablesaw tr td .metadata-label,
+.tablesaw tr td .metadata-value {
+  display: inline-block;
+}
+
+
+@media print, screen and (max-width: 39.9988em) {
+  .faceted-browse-page #section-content .tablesaw tr td {
+    max-width: initial;
+  }
+}
+
+/* Search result layout */
+
+.tablesaw tr {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.tablesaw tr td {
+  text-align: center;
+}
+
+.faceted-browse-page #section-content table .resource-link {
+  align-items: start;
+  text-decoration: none;
+  flex-direction: column;
+  text-align: center;
+}
+
+.faceted-browse-page #section-content table .browse-result-metadata .resource-link img {
+  margin-bottom: 12px;
+  margin-right: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .tablesaw tbody {
+    gap: 36px;
+    grid-template-columns: 1fr 1fr;
+  }
+}

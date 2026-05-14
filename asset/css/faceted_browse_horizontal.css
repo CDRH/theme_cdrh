@@ -1,0 +1,95 @@
+/* Gallery page styles - 
+should match all gallery CSS styles */
+
+
+.tablesaw-advance {
+  display: none;
+}
+
+.tablesaw thead {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.tablesaw tbody {
+  display: grid;
+  gap: 48px 24px;
+}
+
+.tablesaw tr td {
+  border-bottom: 0;
+  max-width: initial;
+  min-width: initial;
+  padding: initial;
+  width: initial;
+}
+
+.tablesaw tr td .metadata-label,
+.tablesaw tr td .metadata-value {
+  display: inline-block;
+}
+
+
+@media print, screen and (max-width: 39.9988em) {
+  .faceted-browse-page #section-content .tablesaw tr td {
+    max-width: initial;
+  }
+}
+
+/* Search result layout */
+
+
+.tablesaw tr {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.faceted-browse-page #section-content table .browse-result-metadata .resource-link {
+  align-items: start;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.faceted-browse-page #section-content table .browse-result-metadata.metadata-field-title, 
+.faceted-browse-page #section-content table .browse-result-metadata.metadata-field-title > * {
+  display: block;
+  width: 100%;
+}
+
+.faceted-browse-page #section-content table .browse-result-metadata .resource-link img {
+  align-self: center;
+  margin-bottom: 12px;
+}
+
+@media screen and (min-width: 480px) {
+
+  .faceted-browse-page #section-content table tr {
+    border: 1px solid var(--cdrh-border-color);
+    border-radius: var(--cdrh-border-radius);
+    gap: 0;
+    min-height: calc(var(--cdrh-browse-img-mh) + var(--cdrh-card-padding) + var(--cdrh-card-padding));
+    padding-left: calc(var(--cdrh-browse-img-mw) + 1.5rem);
+    position: relative;
+  }
+
+  .faceted-browse-page #section-content table .browse-result-metadata .resource-link img {
+    left: var(--cdrh-card-padding);
+    margin: 0;
+    position: absolute;
+    top: var(--cdrh-card-padding);
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .tablesaw tbody {
+    grid-template-columns: 1fr 1fr;
+
+  }
+}

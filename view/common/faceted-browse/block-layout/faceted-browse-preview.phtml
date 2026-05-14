@@ -1,0 +1,53 @@
+<?php 
+
+$this->headLink()->appendStylesheet($this->assetUrl('css/site/page.css', 'FacetedBrowse'));
+$this->headLink()->appendStylesheet($this->assetUrl('vendor/tablesaw/tablesaw.css', 'FacetedBrowse'));
+$this->headScript()->appendFile($this->assetUrl('vendor/tablesaw/tablesaw.jquery.js', 'FacetedBrowse'));
+
+if ($this->themeSetting('fb_layout') === 'h_gallery') {
+  $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_horizontal.css'));
+  $viewClass = "horizontal-gallery";
+};
+
+if ($this->themeSetting('fb_layout') === 'v_gallery') {
+  $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_vertical.css'));
+  $viewClass = "vertical-gallery";
+};
+?>
+
+<table class="faceted-results tablesaw tablesaw-swipe <?php echo $viewClass; ?>" data-tablesaw-mode="swipe">
+    <thead<?php if ($this->themeSetting('fb_layout') != "default"): ?> class="sr-only"<?php endif; ?>>
+        <tr>
+            <?php foreach ($columns as $column): ?>
+            <th><?php echo $column->name(); ?></th>
+            <?php endforeach; ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($items as $item): ?>
+        <tr>
+            <?php foreach ($columns as $column): ?>
+              <?php if ($column->content($item)): ?>
+                <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?>">
+                  <div class="metadata-label<?php if ($this->themeSetting('fb_hide_labels')) echo " d-none"; ?>" aria-hidden="true"><?php echo $column->name(); ?>: </div>
+                  <div class="metadata-value"><?php echo $column->content($item); ?></div>
+                </td>
+                <?php else: ?>
+                <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?> metadata-field-no-content">
+                  <div class="metadata-label d-none"></div>
+                  <div class="metadata-value sr-only">No data</div>
+                </td>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php echo $linkOut; ?>
+
+<script>
+    jQuery(document).ready(function () {
+        Tablesaw.init();
+    });
+</script>

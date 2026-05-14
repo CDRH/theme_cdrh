@@ -1,8 +1,11 @@
 // CDRH variables
 
 :root {
-
-  // No --cdrh-font-sans-serif because --bs-font-sans-serif already exists
+  --cdrh-border-radius: 4px;
+  --cdrh-border-color: #CED4DA; 
+  --cdrh-card-padding: 8px;
+  --cdrh-browse-img-mh: 200px;
+  --cdrh-browse-img-mw: 150px;
   --cdrh-navbar-height: 3rem;
   --cdrh-navbar-secondary-height: calc(var(--cdrh-navbar-height) * 0.75);
   --cdrh-desktop-to-mobile-ratio: 0.8;
@@ -10,6 +13,7 @@
   --cdrh-site-title-margin-mobile: calc(var(--cdrh-site-title-margin) * var(--cdrh-desktop-to-mobile-ratio));
   --cdrh-site-title-size: 2.5rem;
   --cdrh-site-title-size-mobile: calc(var(--cdrh-site-title-size) * var(--cdrh-desktop-to-mobile-ratio));
+  --cdrh-text-decoration-thickness: 2px;
 }
 
 

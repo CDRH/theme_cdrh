@@ -1,0 +1,39 @@
+<table class="faceted-results tablesaw tablesaw-swipe <?php echo $viewClass; ?>"" data-tablesaw-mode="swipe">
+    <thead<?php if ($this->themeSetting('fb_layout') != "default"): ?> class="sr-only"<?php endif; ?>>
+        <tr>
+            <?php foreach ($columns as $column): ?>
+            <th><?php echo $column->name(); ?></th>
+            <?php endforeach; ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($items as $item): ?>
+            <tr>
+                <?php foreach ($columns as $column): ?>
+                    <?php if ($column->content($item)): ?>
+                        <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?>">
+                          <?php 
+                            $input = $this->themeSetting('labels_to_hide') ?? '';
+                            $lines = preg_split('/\R/', $input); // Split by any newline
+                            $lines = array_map('trim', $lines);   // Remove extra spaces
+                            $lines = array_filter($lines);        // Remove empty lines
+                            $lines = array_values($lines); ?>
+                            <div class="metadata-label<?php if ($this->themeSetting('fb_hide_labels') || in_array($column->name(), $lines)) echo " d-none"; ?>" aria-hidden="true"><?php echo $column->name(); ?>: </div>
+                            <div class="metadata-value"><?php echo $column->content($item); ?></div>
+                        <?php else: ?>
+                        <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?> metadata-field-no-content">
+                          <div class="metadata-label" aria-hidden="true"></div>
+                          <div class="metadata-value sr-only">No data</div>
+                        </td>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<script>
+    jQuery(document).ready(function () {
+        Tablesaw.init();
+    });
+</script>

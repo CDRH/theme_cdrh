@@ -21,7 +21,7 @@ a {
   opacity: 1;
 
   &:hover {
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: var(--cdrh-text-decoration-thickness);
   }
 }
 
@@ -176,6 +176,7 @@ button {
   font-size: var(--bs-btn-font-size);
   font-weight: var(--bs-btn-font-weight);
   line-height: var(--bs-btn-line-height);
+  margin-top: 8px;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
   text-align: center;
   text-decoration: none;
@@ -284,33 +285,5 @@ button {
 @media screen and (min-width: 768px) {
   #main_content .browse-controls {
     justify-content: space-between;
-  }
-}
-
-// Faceted Browse
-
-// Fix misalignment problems
-
-#section-sidebar-modal-toggle {
-  margin-left: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-#section-sidebar button.close-button {
-  font-size: 1.5rem;
-  right: -4px;
-  top: -4px;
-}
-
-@media print, screen and (max-width: 39.9988em) {
-  .faceted-browse-page #section-sidebar.open {
-    padding-top: 55px; // keep instructions from overlapping with x
-  }
-}
-
-@media screen and (min-width: 40em) {
-  #helper-text-expand-collapse,
-  #helper-text {
-    margin-right: 0 !important;
   }
 }

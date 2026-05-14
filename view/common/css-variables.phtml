@@ -6,7 +6,6 @@
 // See theme.ini for full list of available variables, keys, and values.
 
 $escape = $this->plugin('escapeHtml');
-$transparentNav = $this->themeSetting('navbar_1_transparent');
 $breakpoint = $this->themeSetting('breakpoint');
 $bodyStyle = $this->themeSetting('font_body');
 $headingsStyle = $this->themeSetting('font_style_headings');
@@ -22,7 +21,9 @@ $headingsFont = $this->themeSetting('font_headings');
   --bs-body-color: <?php echo $this->themeSetting('text_color'); ?>;
   --bs-body-font-size: <?php echo $this->themeSetting('font_size'); ?>;
   --bs-primary: <?php echo $this->themeSetting('btn_primary_bg') ?>;
-  --bs-secondary: <?php echo $this->themeSetting('btn_secondary_bg') ?>;
+  --bs-secondary: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
+  --cdrh-border-color: <?php echo $this->themeSetting('border_color'); ?>;
+  --cdrh-border-radius: <?php echo $this->themeSetting('border_radius'); ?>
 }
 
 :root, a {
@@ -72,6 +73,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   --bs-btn-color: <?php echo $this->themeSetting('btn_primary'); ?>;
   --bs-btn-bg: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
   --bs-btn-border-color: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
+  --bs-btn-bg-secondary: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
+  --bs-btn-color-secondary: <?php echo $this->themeSetting('btn_secondary'); ?>
 }
 
 .btn-secondary {
@@ -92,23 +95,23 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .navbar {
-  background-color: <?php echo $this->themeSetting('navbar_1_bg'); ?>;
+  background: <?php echo $this->themeSetting('navbar_1_bg'); ?>;
 }
 
 .navbar-nav ul {
-  background-color: <?php echo $this->themeSetting('navbar_2_bg'); ?>;
+  background: <?php echo $this->themeSetting('navbar_2_bg'); ?>;
 }
 
 .navbar-nav li:hover, 
 .navbar-nav > li > a:hover,
 .navbar-nav > li.active > a:hover {
-  background-color: <?php echo $this->themeSetting('navbar_1_hover_bg'); ?>;
+  background: <?php echo $this->themeSetting('navbar_1_hover_bg'); ?>;
   color: <?php echo $this->themeSetting('navbar_1_hover_color'); ?>;
 }
 
 .navbar-nav > li.active > a {
   color: <?php echo $this->themeSetting('navbar_1_active_color'); ?>;
-  background-color: <?php echo $this->themeSetting('navbar_1_active_bg'); ?>;
+  background: <?php echo $this->themeSetting('navbar_1_active_bg'); ?>;
 }
 
 .navbar-nav li ul li a {
@@ -118,26 +121,40 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .navbar-nav li ul li:hover, 
 .navbar-nav li ul li a:hover,
 .navbar-nav > li.active ul li.active > a:hover {
-  background-color: <?php echo $this->themeSetting('navbar_2_hover_bg'); ?>;
+  background: <?php echo $this->themeSetting('navbar_2_hover_bg'); ?>;
   color: <?php echo $this->themeSetting('navbar_2_hover_color'); ?>;
 }
 
 .navbar-nav > li.active ul li.active > a {
-  background-color: <?php echo $this->themeSetting('navbar_2_active_bg'); ?>;
+  background: <?php echo $this->themeSetting('navbar_2_active_bg'); ?>;
   color: <?php echo $this->themeSetting('navbar_2_active_color'); ?>;
 }
 
 /* Navbar transparent background */
-<?php if ($transparentNav): ?>
-  .navbar-nav,
-  .navbar-nav ul, 
+<?php if ($this->themeSetting('navbar_1_transparent')): ?>
+  .navbar,
+  .navbar-nav ul,
+  .navbar-nav li:hover, 
   .navbar-nav > li > a:hover,
+  .navbar-nav > li.active > a:hover,
   .navbar-nav > li.active > a,
-  .navbar-nav > li ul li a, , 
-  .navbar-nav > li ul li a:hover,
+  .navbar-nav li ul li:hover, 
+  .navbar-nav li ul li a:hover,
+  .navbar-nav > li.active ul li.active > a:hover,
   .navbar-nav > li.active ul li.active > a {
-    background: transparent !important;
+    background: transparent;
   }
+
+  .navbar-nav > li > a,
+  .navbar-nav li ul li a {
+    text-decoration: underline;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav li ul li a:hover {
+    text-decoration-thickness: var(--cdrh-text-decoration-thickness);
+  }
+
 <?php endif; // end if transparentNav ?>
 
 
@@ -193,11 +210,21 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 .footer-logo .sponsor-name {
- background-color: <?php echo $this->themeSEtting('logo_bg'); ?>;
+ background-color: <?php echo $this->themeSetting('logo_bg'); ?>;
 }
 
 /* Faceted Browse */
 <?php if ($this->themeSetting('faceted_browse_gallery')): ?>
-
+  :root {
+    --cdrh-browse-img-mh: <?php echo $this->themeSetting('fb_img_height'); ?>px;
+    --cdrh-browse-img-mw: <?php echo $this->themeSetting('fb_img_width'); ?>px;
+  }
 <?php endif; ?>
+
+<?php if ($this->themeSetting('fb_help_text')): ?>
+  #helper-text-expand-collapse {
+    display: none;
+  }
+<?php endif; ?>
+
 </style>

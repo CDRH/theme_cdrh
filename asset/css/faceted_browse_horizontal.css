@@ -55,6 +55,7 @@ should match all gallery CSS styles */
   align-items: start;
   flex-direction: column;
   text-decoration: none;
+  margin-top: 1rem;
 }
 
 .faceted-browse-page #section-content table .browse-result-metadata.metadata-field-title, 

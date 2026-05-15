@@ -198,15 +198,18 @@ button {
 }
 
 /* Browse Controls site-wide */
-.browse-controls {
+#main_content .browse-controls {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
   margin: 15px 5px 0px 5px;
-  row-gap: 6px;
+  gap: 6px;
 }
-.browse-controls form.sorting {
+#main_content .browse-controls > * {
+  margin-bottom: 0;
+}
+#main_content .browse-controls form.sorting {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
@@ -241,6 +244,10 @@ button {
 @media screen and (min-width: 768px) {
   #main_content .browse-controls {
     justify-content: space-between;
+  }
+  #main_content .browse-controls .button.permalink,
+  #main_content .browse-controls form.sorting {
+    margin-left: auto;
   }
 }
 :root {

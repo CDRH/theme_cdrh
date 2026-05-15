@@ -237,13 +237,17 @@ button {
 
 /* Browse Controls site-wide */
 
-.browse-controls {
+#main_content .browse-controls{
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
   margin: 15px 5px 0px 5px;
-  row-gap: 6px;
+  gap: 6px;
+
+  > * {
+    margin-bottom: 0;
+  }
 
   form.sorting {
     display: flex;
@@ -285,5 +289,10 @@ button {
 @media screen and (min-width: 768px) {
   #main_content .browse-controls {
     justify-content: space-between;
+
+    .button.permalink, 
+    form.sorting {
+      margin-left: auto;
+    }
   }
 }

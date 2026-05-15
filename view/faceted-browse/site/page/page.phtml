@@ -7,9 +7,18 @@ $this->headScript()->appendFile($this->assetUrl('vendor/tablesaw/tablesaw.jquery
 $this->facetedBrowse()->prepareFacets();
 
 $this->htmlElement('body')->appendAttribute('class', 'faceted-browse-page resource browse');
-// begin edit: change title to h1, move to line 23
-// end edit
 
+$categories = $page->categories();
+$categoryId = null;
+if (1 === count($categories)) {
+    $category = current($categories);
+    $categoryId = $category->id();
+};
+
+// begin CDRH edits
+// changed title to h1, moved to line 38
+
+// add gallery stylesheets if applicable
 if ($this->themeSetting('fb_layout') === 'h_gallery') {
   $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_horizontal.css'));
 };
@@ -18,17 +27,15 @@ if ($this->themeSetting('fb_layout') === 'v_gallery') {
   $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_vertical.css'));
 };
 
-$categories = $page->categories();
-$categoryId = null;
-if (1 === count($categories)) {
-    $category = current($categories);
-    $categoryId = $category->id();
-}
-
+// add body class with page ID
+$facetedBrowseID = $this->escapeHtml($page->id());
+$this->htmlElement('body')->appendAttribute('class', 'faceted-browse-' . $facetedBrowseID);
+// end CDRH edits
 ?>
-<?php // begin edit: change title to h1, move to line 23 ?>
+
+<?php // begin CDRH edit: change title to h1, move to line 23 ?>
 <?php echo $this->pageTitle($page->title(), 1); ?>
-<?php // end edit ?>
+<?php // end CDRH edit ?>
 <div id="container"
     data-url-categories="<?php echo $this->escapeHtml($this->url(null, ['action' => 'categories'], true)); ?>"
     data-url-facets="<?php echo $this->escapeHtml($this->url(null, ['action' => 'facets'], true)); ?>"

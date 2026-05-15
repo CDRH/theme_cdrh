@@ -14,7 +14,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 if ($resource->media()) {
   foreach ($resource->media() as $file) {
     $fileType = $file->extension();
-    $this->htmlElement('body')->appendAttribute('class', 'media-type-$fileType');
+    $this->htmlElement('body')->appendAttribute('class', 'media-type-' . $fileType);
   }
 };
 

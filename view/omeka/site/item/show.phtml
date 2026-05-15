@@ -1,0 +1,30 @@
+<?php
+$translate = $this->plugin('translate');
+$this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
+$this->headLink()->appendStylesheet($this->assetUrl('vendor/fancybox/fancybox.min.css'));
+$this->headScript()->prependFile($this->assetUrl('js/item_gallery_lightbox.js'));
+$this->headScript()->prependFile($this->assetUrl('vendor/fancybox/fancybox.min.js'));
+$this->htmlElement('body')->appendAttribute('class', 'item resource show');
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$lang = $this->lang();
+$valueLang = $filterLocale ? [$lang, ''] : null;
+
+// Begin CDRH edits
+// print body class with media filetype
+if ($resource->media()) {
+  foreach ($resource->media() as $file) {
+    $fileType = $file->extension();
+    $this->htmlElement('body')->appendAttribute('class', 'media-type-$fileType');
+  }
+};
+
+// print body class with resource template type (e.g. CDRH Schema 2)
+if ($item->resourceTemplate()) {
+    $this->htmlElement('body')->appendAttribute('class', ' resource-template-' . strtolower(str_replace(" ", "-",$item->resourceTemplate()->label())));
+  }
+?>
+
+<?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 1); ?>
+<?php $this->trigger('view.show.before'); ?>
+<?php echo $this->resourcePageBlocks($item)->getBlocks(); ?>
+<?php $this->trigger('view.show.after'); ?>

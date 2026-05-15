@@ -296,3 +296,12 @@ button {
     }
   }
 }
+
+
+// Item 
+
+.media-type-pdf {
+  .media-render.file { // If type PDF, use Octopus viewer and hide thumbnail
+    display: none;
+  }
+}

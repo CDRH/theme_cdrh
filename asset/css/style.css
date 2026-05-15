@@ -250,6 +250,10 @@ button {
     margin-left: auto;
   }
 }
+.media-type-pdf .media-render.file {
+  display: none;
+}
+
 :root {
   --cdrh-border-radius: 4px;
   --cdrh-border-color: #CED4DA;

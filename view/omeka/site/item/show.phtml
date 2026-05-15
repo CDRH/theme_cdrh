@@ -21,14 +21,17 @@ if ($resource->media()) {
 // print body class with resource template type (e.g. CDRH Schema 2)
 if ($item->resourceTemplate()) {
     $this->htmlElement('body')->appendAttribute('class', ' resource-template-' . strtolower(str_replace(" ", "-",$item->resourceTemplate()->label())));
-  }
+  };
+// end CDRH edits
 ?>
 
 <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 1); ?>
 
 <?php $this->trigger('view.show.before'); ?>
+<?php echo $this->resourcePageBlocks($item)->getBlocks(); ?>
 
-<?php // only use Octopus Viewer if file is a PDF
+<?php // Begin CDRH edits
+ // only use Octopus Viewer if file is a PDF
  if ($resource->media()) {
   foreach ($resource->media() as $file) {
     $filetype = $file->extension();
@@ -42,7 +45,5 @@ if ($item->resourceTemplate()) {
       };
     };
   };
-?>
-
-<?php echo $this->resourcePageBlocks($item)->getBlocks(); ?>
+// end CDRH edits ?>
 <?php $this->trigger('view.show.after'); ?>

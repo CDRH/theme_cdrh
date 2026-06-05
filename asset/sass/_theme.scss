@@ -31,28 +31,60 @@ a {
   padding-bottom: 2rem;
   padding-top: 2rem;
 }
+
 // Header
+#header {
+  display: grid;
 
-.site-title-container a {
-  display: block;
-  margin-bottom: var(--cdrh-site-title-margin-mobile);
-  margin-top: var(--cdrh-site-title-margin-mobile);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
+  #user-bar {
+    order: -2;
   }
 
-  .site-title {
-    display: block;
-    font-size: var(--cdrh-site-title-size-mobile);
-  }
-
-  .site-subtitle {
-    display: block;
-    font-size: calc(var(--cdrh-site-title-size-mobile) * 0.67);
+  nav.top-right {
+    order: -1;
   }
 }
+
+nav.top-right ul {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: end;
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding-left: 0;
+
+  a:hover {
+    text-decoration-thickness: var(--cdrh-text-decoration-thickness);
+  }
+}
+
+.site-title-container {
+  a {
+    display: block;
+    margin-bottom: var(--cdrh-site-title-margin-mobile);
+    margin-top: var(--cdrh-site-title-margin-mobile);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .site-title {
+      display: block;
+      font-size: var(--cdrh-site-title-size-mobile);
+    }
+
+    .site-subtitle {
+      display: block;
+      font-size: calc(var(--cdrh-site-title-size-mobile) * 0.67);
+    }
+  }
+
+  &.order-0 a {
+    margin-top: 0;
+  }
+}
+
 // Bootstrap 5 .nav-link styles
 .navbar-nav li a {
   display: block;
@@ -94,6 +126,7 @@ a {
     }
   }
 }
+
 
 @media screen and (min-width: 768px) {
   #navbarMainMenu {

@@ -90,6 +90,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 /* Navbar colors */
 
+nav.top-right ul a,
+nav.top-right ul a:visited {
+  color: <?php echo $this->themeSetting('top_right_color'); ?>;
+}
+
+nav.top-right ul li.active a, 
+nav.top-right ul a:hover {
+  color: <?php echo $this->themeSetting('top_right_hover'); ?>
+}
+
+
 .navbar-nav {
   --bs-nav-link-color: <?php echo $this->themeSetting('navbar_1_color'); ?>;
 }

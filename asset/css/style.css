@@ -25,6 +25,28 @@ a:hover {
   padding-top: 2rem;
 }
 
+#header {
+  display: grid;
+}
+#header #user-bar {
+  order: -2;
+}
+#header nav.top-right {
+  order: -1;
+}
+
+nav.top-right ul {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: end;
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding-left: 0;
+}
+nav.top-right ul a:hover {
+  text-decoration-thickness: var(--cdrh-text-decoration-thickness);
+}
+
 .site-title-container a {
   display: block;
   margin-bottom: var(--cdrh-site-title-margin-mobile);
@@ -41,6 +63,9 @@ a:hover {
 .site-title-container a .site-subtitle {
   display: block;
   font-size: calc(var(--cdrh-site-title-size-mobile) * 0.67);
+}
+.site-title-container.order-0 a {
+  margin-top: 0;
 }
 
 .navbar-nav li a {

@@ -63,7 +63,7 @@ $userBar = $this->userBar();
         
         <?php echo $userBar; ?>
 
-        <div class="site-title-container<?php if ($this->themeSetting('center_header')): ?> text-center<?php endif; ?>">
+        <div class="site-title-container<?php if ($this->themeSetting('center_header')): ?> text-center<?php endif; ?><?php if ($this->themeSetting('top_right')) echo ' order-0'; ?>">
           <div class="<?php echo $bsContainerClasses; ?>">
             <a href="<?php echo $site->url(); ?>">
               <span class="site-title"><?php echo $escape($headerTitle); ?></span>
@@ -71,6 +71,15 @@ $userBar = $this->userBar();
             </a>
           </div>
         </div>
+
+        <?php if ($this->themeSetting('top_right')): ?>
+          <nav class="<?php echo $bsContainerClasses; ?> top-right"
+            aria-label="<?php echo ($this->themeSetting('top_right_label')) ? $this->themeSetting('top_right_label') : 'Quick Links'; ?>">
+            <?= $this->navMenu('top-right', [
+              $activeUrl => 'true',
+            ]) ?>
+          </nav>
+        <?php endif; ?>
 
         <div class="navbar navbar-expand<?php if ($breakpoint != "-none") echo $breakpoint; ?>">
           <button class="navbar-toggler ms-auto me-2 my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +92,6 @@ $userBar = $this->userBar();
             </nav>
           </div>
         </div>
-
       </header>
 
       <main id="main_content">

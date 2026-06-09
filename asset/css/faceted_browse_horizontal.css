@@ -32,7 +32,8 @@ in faceted_browse_vertical.css */
 
 .tablesaw tr td .metadata-label,
 .tablesaw tr td .metadata-value {
-  display: inline;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .tablesaw tr td.metadata-field-no-content {

@@ -4,14 +4,16 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/site/page.css', 'Facete
 $this->headLink()->appendStylesheet($this->assetUrl('vendor/tablesaw/tablesaw.css', 'FacetedBrowse'));
 $this->headScript()->appendFile($this->assetUrl('vendor/tablesaw/tablesaw.jquery.js', 'FacetedBrowse'));
 
-if ($this->themeSetting('fb_layout') === 'h_gallery') {
+if ($this->themeSetting('fb_layout') == 'h_gallery') {
   $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_horizontal.css'));
   $viewClass = "horizontal-gallery";
-};
-
-if ($this->themeSetting('fb_layout') === 'v_gallery') {
+}
+elseif ($this->themeSetting('fb_layout') === 'v_gallery') {
   $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_vertical.css'));
   $viewClass = "vertical-gallery";
+}
+else {
+  $viewClass = "default-table";
 };
 ?>
 
@@ -27,16 +29,23 @@ if ($this->themeSetting('fb_layout') === 'v_gallery') {
         <?php foreach ($items as $item): ?>
         <tr>
             <?php foreach ($columns as $column): ?>
-              <?php if ($column->content($item)): ?>
-                <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?>">
-                  <div class="metadata-label<?php if ($this->themeSetting('fb_hide_labels')) echo " d-none"; ?>" aria-hidden="true"><?php echo $column->name(); ?>: </div>
-                  <div class="metadata-value"><?php echo $column->content($item); ?></div>
-                </td>
-                <?php else: ?>
-                <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?> metadata-field-no-content">
-                  <div class="metadata-label d-none"></div>
-                  <div class="metadata-value sr-only">No data</div>
-                </td>
+                <?php if ($column->content($item)): ?>
+                    <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?>">
+                        <?php 
+                        $input = $this->themeSetting('labels_to_hide') ?? '';
+                        $lines = preg_split('/\R/', $input); // Split by any newline
+                        $lines = array_map('trim', $lines);   // Remove extra spaces
+                        $lines = array_filter($lines);        // Remove empty lines
+                        $lines = array_values($lines); 
+                        ?>
+                        <div class="metadata-label<?php if ($this->themeSetting('fb_hide_labels') || in_array($column->name(), $lines) || in_array($column->data('property_term'), $lines)) echo " d-none"; ?>" aria-hidden="true"><?php echo $column->name(); ?>: </div>
+                        <div class="metadata-value"><?php echo $column->content($item); ?></div>
+                    </td>
+                  <?php else: ?>
+                    <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?> metadata-field-no-content">
+                        <div class="metadata-label d-none"></div>
+                        <div class="metadata-value sr-only">No data</div>
+                    </td>
                 <?php endif; ?>
             <?php endforeach; ?>
         </tr>

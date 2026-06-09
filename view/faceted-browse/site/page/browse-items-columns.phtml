@@ -12,18 +12,20 @@
                 <?php foreach ($columns as $column): ?>
                     <?php if ($column->content($item)): ?>
                         <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?>">
-                          <?php 
-                            $input = $this->themeSetting('labels_to_hide') ?? '';
-                            $lines = preg_split('/\R/', $input); // Split by any newline
-                            $lines = array_map('trim', $lines);   // Remove extra spaces
-                            $lines = array_filter($lines);        // Remove empty lines
-                            $lines = array_values($lines); ?>
-                            <div class="metadata-label<?php if ($this->themeSetting('fb_hide_labels') || in_array($column->name(), $lines)) echo " d-none"; ?>" aria-hidden="true"><?php echo $column->name(); ?>: </div>
+                            <?php 
+                              $input = $this->themeSetting('labels_to_hide') ?? '';
+                              $labels = preg_split('/\R/', $input); // Split by any newline
+                              $labels = array_map('trim', $labels);   // Remove extra spaces
+                              $labels = array_filter($labels);        // Remove empty lines
+                              $labels = array_values($labels); 
+                              ?>
+                            <div class="metadata-label<?php if ($this->themeSetting('fb_hide_labels') || in_array($column->name(), $labels) || in_array($column->data('property_term'), $labels)) echo " d-none"; ?>" aria-hidden="true"><?php echo $column->name(); ?>: </div>
                             <div class="metadata-value"><?php echo $column->content($item); ?></div>
-                        <?php else: ?>
+                        </td>
+                    <?php else: ?>
                         <td class="browse-result-metadata metadata-field-<?php echo strtolower(str_replace(" ", "-",$column->name())); ?> metadata-field-no-content">
-                          <div class="metadata-label" aria-hidden="true"></div>
-                          <div class="metadata-value sr-only">No data</div>
+                            <div class="metadata-label" aria-hidden="true"></div>
+                            <div class="metadata-value sr-only">No data</div>
                         </td>
                     <?php endif; ?>
                 <?php endforeach; ?>

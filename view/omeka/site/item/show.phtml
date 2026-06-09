@@ -1,9 +1,11 @@
 <?php
 $translate = $this->plugin('translate');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
-$this->headLink()->appendStylesheet($this->assetUrl('vendor/fancybox/fancybox.min.css'));
-$this->headScript()->prependFile($this->assetUrl('js/item_gallery_lightbox.js'));
-$this->headScript()->prependFile($this->assetUrl('vendor/fancybox/fancybox.min.js'));
+if ($this->themeSetting('fancybox')) {
+  $this->headLink()->appendStylesheet($this->assetUrl('vendor/fancybox/fancybox.min.css'));
+  $this->headScript()->prependFile($this->assetUrl('js/item_gallery_lightbox.js'));
+  $this->headScript()->prependFile($this->assetUrl('vendor/fancybox/fancybox.min.js'));
+};
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();

@@ -239,8 +239,16 @@ nav.top-right ul a:hover {
 <?php endif; ?>
 
 <?php if ($this->themeSetting('hide_thumbs')): ?>
-  .faceted-browse .resource-link img {
+  .resource-link > img {
     display: none;
+  }
+
+  @media screen and (min-width: 480px) {
+    .faceted-browse-page.horizontal-gallery #section-content table tr {
+      min-height: initial;
+      padding: calc(var(--cdrh-card-padding) * 3);
+      padding-top: 0;
+    }
   }
 <?php endif; ?>
 

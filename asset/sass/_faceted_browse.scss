@@ -84,3 +84,8 @@
   max-height: var(--cdrh-browse-img-mh);
   max-width: var(--cdrh-browse-img-mw);
 }
+
+// Don't display metadata labels in table view
+.faceted-browse-page.default-view .metadata-label {
+  display: none;
+}

@@ -554,4 +554,8 @@ button {
   max-width: var(--cdrh-browse-img-mw);
 }
 
+.faceted-browse-page.default-view .metadata-label {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

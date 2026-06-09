@@ -7,13 +7,14 @@ $this->headScript()->appendFile($this->assetUrl('vendor/tablesaw/tablesaw.jquery
 $this->facetedBrowse()->prepareFacets();
 
 $this->htmlElement('body')->appendAttribute('class', 'faceted-browse-page resource browse');
+$this->pageTitle($page->title(), 2);
 
 $categories = $page->categories();
 $categoryId = null;
 if (1 === count($categories)) {
     $category = current($categories);
     $categoryId = $category->id();
-};
+}
 
 // begin CDRH edits
 // changed title to h1, moved to line 38
@@ -21,15 +22,19 @@ if (1 === count($categories)) {
 // add gallery stylesheets if applicable
 if ($this->themeSetting('fb_layout') === 'h_gallery') {
   $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_horizontal.css'));
-};
-
-if ($this->themeSetting('fb_layout') === 'v_gallery') {
+  $viewClass = "horizontal-gallery";
+}
+elseif ($this->themeSetting('fb_layout') === 'v_gallery') {
   $this->headLink()->prependStylesheet($this->assetUrl('css/faceted_browse_vertical.css'));
+  $viewClass = "vertical-gallery";
+}
+else {
+  $viewClass = "default-view";
 };
 
 // add body class with page ID
 $facetedBrowseID = $this->escapeHtml($page->id());
-$this->htmlElement('body')->appendAttribute('class', 'faceted-browse-' . $facetedBrowseID);
+$this->htmlElement('body')->appendAttribute('class', 'faceted-browse-' . $facetedBrowseID . " " . $viewClass);
 // end CDRH edits
 ?>
 
@@ -43,9 +48,7 @@ $this->htmlElement('body')->appendAttribute('class', 'faceted-browse-' . $facete
     data-category-id="<?php echo $this->escapeHtml($categoryId); ?>">
     <?php // begin edit: add class="btn btn-primary" ?>
     <button id="section-sidebar-modal-toggle" type="button" class="btn btn-primary"><?php echo $this->translate('Filters'); ?></button>
-    <?php // end edit ?>
-    <?php // begin edit: print page title ?>
-    <div id="section-sidebar" class="mobile modal-panel" aria-describedby="facet-modal-description" aria-label="<?php echo $this->translate('Filters'); ?>"></div>
+    <?php // end edit ?>    <div id="section-sidebar" class="mobile modal-panel" aria-describedby="facet-modal-description" aria-label="<?php echo $this->translate('Filters'); ?>"></div>
     <div id="section-content"></div>
 </div>
 

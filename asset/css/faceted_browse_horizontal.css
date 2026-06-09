@@ -1,6 +1,6 @@
 /* Gallery page styles - 
-should match all gallery CSS styles */
-
+should match gallery CSS styles
+in faceted_browse_vertical.css */
 
 .tablesaw-advance {
   display: none;
@@ -32,7 +32,18 @@ should match all gallery CSS styles */
 
 .tablesaw tr td .metadata-label,
 .tablesaw tr td .metadata-value {
-  display: inline-block;
+  display: inline;
+}
+
+.tablesaw tr td.metadata-field-no-content {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 
@@ -43,7 +54,6 @@ should match all gallery CSS styles */
 }
 
 /* Search result layout */
-
 
 .tablesaw tr {
   align-items: start;

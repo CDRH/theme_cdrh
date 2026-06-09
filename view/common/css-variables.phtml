@@ -238,4 +238,10 @@ nav.top-right ul a:hover {
   }
 <?php endif; ?>
 
+<?php if ($this->themeSetting('hide_thumbs')): ?>
+  .faceted-browse .resource-link img {
+    display: none;
+  }
+<?php endif; ?>
+
 </style>

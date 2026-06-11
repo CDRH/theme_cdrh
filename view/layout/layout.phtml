@@ -10,6 +10,7 @@ $bannerBackground = $this->themeSetting('bg_banner');
 $bsContainerClasses = "container";
 $ulClasses = 'navbar-nav';
 $breakpoint = '-' . $this->themeSetting('breakpoint');
+$browseLayout = $this->themeSetting('browse_layout');
 
 if ($this->themeSetting('show_navbar_2')):
   $navDepth = 1;
@@ -36,6 +37,13 @@ $this->headScript()->appendFile($this->assetUrl('vendor/bootstrap/js/bootstrap.b
 
 $this->jsTranslate();
 $this->htmlElement('body')->appendAttribute('class', 'body-truncate-' . $browseBodyTruncation);
+
+// Custom body classes
+if ($this->themeSetting('browse_layout')) {
+  $this->htmlElement('body')->appendAttribute('class', 'browse-layout-' . $browseLayout);
+};
+
+
 $this->trigger('view.layout'); 
 $userBar = $this->userBar();
 ?>

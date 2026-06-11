@@ -30,6 +30,10 @@
 
 // Bootstrap overrides
 
+:root {
+  --bs-gutter-y: 2rem !important;
+}
+
 :root,
 .btn,
 button {

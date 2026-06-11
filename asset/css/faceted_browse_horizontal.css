@@ -18,8 +18,9 @@ in faceted_browse_vertical.css */
 }
 
 .tablesaw tbody {
+  --bs-gutter-y: 2rem;
+
   display: grid;
-  gap: 48px 24px;
 }
 
 .tablesaw tr td {
@@ -49,6 +50,9 @@ in faceted_browse_vertical.css */
 
 
 @media print, screen and (max-width: 39.9988em) {
+  .faceted-browse-page #section-content .tablesaw tr {
+    padding: calc(var(--cdrh-card-padding) * 2) 0;
+  }
   .faceted-browse-page #section-content .tablesaw tr td {
     max-width: initial;
   }
@@ -56,8 +60,13 @@ in faceted_browse_vertical.css */
 
 /* Search result layout */
 
+.tablesaw tbody {
+  border-top: 1px solid var(--cdrh-border-color);
+}
+
 .tablesaw tr {
   align-items: start;
+  border-bottom: 1px solid var(--cdrh-border-color);
   display: flex;
   flex-direction: column;
 }
@@ -66,7 +75,6 @@ in faceted_browse_vertical.css */
   align-items: start;
   flex-direction: column;
   text-decoration: none;
-  margin-top: 1rem;
 }
 
 .faceted-browse-page #section-content table .browse-result-metadata.metadata-field-title, 
@@ -82,16 +90,25 @@ in faceted_browse_vertical.css */
 
 @media screen and (min-width: 480px) {
 
-  .faceted-browse-page #section-content table tr {
+    .tablesaw tbody {
+      display: grid;
+      gap: var(--bs-gutter-y) var(--bs-gutter-x);
+    }
+
+  .faceted-browse-page #section-content .tablesaw tr {
     border: 1px solid var(--cdrh-border-color);
     border-radius: var(--cdrh-border-radius);
     gap: 0;
-    min-height: calc(var(--cdrh-browse-img-mh) + var(--cdrh-card-padding) + var(--cdrh-card-padding));
-    padding-left: calc(var(--cdrh-browse-img-mw) + 1.5rem);
+    padding: var(--cdrh-card-padding) calc(var(--cdrh-card-padding) * 2);
     position: relative;
   }
 
-  .faceted-browse-page #section-content table .browse-result-metadata .resource-link img {
+  .faceted-browse-page #section-content .tablesaw tr:has(img) {
+    min-height: calc(var(--cdrh-browse-img-mh) + var(--cdrh-card-padding) + var(--cdrh-card-padding));
+    padding-left: calc(var(--cdrh-browse-img-mw) + 1.5rem);
+  }
+
+  .faceted-browse-page #section-content .tablesaw .browse-result-metadata .resource-link img {
     left: var(--cdrh-card-padding);
     margin: 0;
     position: absolute;

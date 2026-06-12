@@ -500,3 +500,43 @@ body:not(.browse-layout-default) {
     }
   }
 }
+
+// Items
+
+// Metadata box
+main > .container > dl {
+
+    .property {
+        overflow: hide;
+        overflow-wrap: break-word;
+        break-inside: avoid-column;
+
+        dt {
+            display: inline;
+
+            &::after {
+                content: ": ";
+                margin-left: -.2em;
+            }
+        }
+
+        dd {
+            display: inline;
+        }
+
+        dd:not(:last-child)::after {
+            content: " | ";
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main > div > dl:first-of-type {
+        columns: 2;
+    }
+}
+
+// hide images from metadata
+main > div > dl img {
+    display: none;
+}

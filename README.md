@@ -3,6 +3,7 @@
 This is a bare-bones Omeka S theme created by the [Center of Digital Research in the Humanities](https://cdrh.unl.edu/) at the [University of Nebraska–Lincoln](https://www.unl.edu/) for use in its projects. 
 
 ## Important Notes
+- Be sure to make the recommended [application overrides](https://github.com/cdrh/omeka_s_cdrh_theme/blob/main/application-overrides.md) to fix unaddressed accessibility issues that cannot be fixed via the theme.
 - Refer to 
 [Omeka S Developer Documentation: Themes](https://omeka.org/s/docs/developer/themes/) for detailed information about theme development.
 - When editing CSS, make sure to run `sass --watch asset/sass/style.scss asset/css/style.css` in the theme's root folder to compile any SASS changes you make into the `style.css` CSS stylesheet. Omeka S will not compile SASS on its own.

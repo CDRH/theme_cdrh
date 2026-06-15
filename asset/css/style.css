@@ -391,8 +391,8 @@ body:not(.browse-layout-default) .resource-list .resource-link img {
   }
 }
 @media screen and (min-width: 968px) {
-  .browse-layout-h_gallery .resource-list,
-  .browse-layout-v_gallery .resource-list {
+  .faceted-browse-page .browse-layout-h_gallery .resource-list,
+  .faceted-browse-page .browse-layout-v_gallery .resource-list {
     display: grid;
     column-gap: calc(var(--bs-gutter-x) * 1.25);
     grid-template-columns: 1fr 1fr;

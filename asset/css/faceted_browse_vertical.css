@@ -79,7 +79,7 @@ in faceted_browse_horizontal.css */
 }
 
 @media screen and (min-width: 992px) {
-  .tablesaw tbody {
+  .faceted-browse-page .tablesaw tbody {
     gap: 36px;
     grid-template-columns: 1fr 1fr;
   }

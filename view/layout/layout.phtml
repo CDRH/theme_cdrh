@@ -33,6 +33,14 @@ $this->headLink()->prependStylesheet($this->assetUrl('vendor/bootstrap/css/boots
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('vendor/bootstrap/js/bootstrap.bundle.min.js')); 
+
+// include files for fancybox if theme setting is checked
+if ($this->themeSetting('fancybox')) {
+  $this->headLink()->appendStylesheet($this->assetUrl('vendor/fancybox/fancybox.min.css'));
+  $this->headScript()->prependFile($this->assetUrl('js/item_gallery_lightbox.js'));
+  $this->headScript()->prependFile($this->assetUrl('vendor/fancybox/fancybox.min.js'));
+};
+
 // To move this scripts to the bottom of the file, use Zend Framework's inlineScript function
 
 $this->jsTranslate();

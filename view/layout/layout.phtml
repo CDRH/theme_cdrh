@@ -37,8 +37,8 @@ $this->headScript()->appendFile($this->assetUrl('vendor/bootstrap/js/bootstrap.b
 // include files for fancybox if theme setting is checked
 if ($this->themeSetting('fancybox')) {
   $this->headLink()->appendStylesheet($this->assetUrl('vendor/fancybox/fancybox.min.css'));
-  $this->headScript()->prependFile($this->assetUrl('js/item_gallery_lightbox.js'));
-  $this->headScript()->prependFile($this->assetUrl('vendor/fancybox/fancybox.min.js'));
+  $this->headScript()->appendFile($this->assetUrl('js/item_gallery_lightbox.js'));
+  $this->headScript()->appendFile($this->assetUrl('vendor/fancybox/fancybox.min.js'));
 };
 
 // To move this scripts to the bottom of the file, use Zend Framework's inlineScript function

@@ -121,6 +121,29 @@ nav.top-right ul a:hover {
     padding: 0.25rem 1rem;
   }
 }
+.breadcrumbs + .sub-menu ul {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1px;
+  list-style: none;
+  margin-top: 2rem;
+  padding-left: 0;
+}
+.breadcrumbs + .sub-menu ul li a {
+  background-color: #f0f0f0;
+  border: 1px solid var(--cdrh-border-color);
+  color: var(--bs-link-color);
+  display: block;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  text-decoration: none;
+}
+.breadcrumbs + .sub-menu ul li a:hover {
+  background-color: #dddddd;
+  border: 1px solid var(--bs-link-color);
+  color: var(--bs-link-hover-color);
+}
+
 button {
   --bs-btn-padding-x: var(--bs-btn-padding-x);
   --bs-btn-padding-y: var(--bs-btn-padding-y);

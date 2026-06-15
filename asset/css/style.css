@@ -144,22 +144,8 @@ nav.top-right ul a:hover {
   color: var(--bs-link-hover-color);
 }
 
-button {
-  --bs-btn-padding-x: var(--bs-btn-padding-x);
-  --bs-btn-padding-y: var(--bs-btn-padding-y);
-  --bs-btn-font-family: var(--bs-btn-font-family);
-  --bs-btn-font-size: var(--bs-btn-font-size);
-  --bs-btn-font-weight: var(--bs-btn-font-weight);
-  --bs-btn-line-height: var(--bs-btn-line-height);
-  --bs-btn-color: var(--bs-btn-color);
-  --bs-btn-bg: var(--bs-btn-bg);
-  --bs-btn-border-width: var(--bs-btn-border-width);
-  --bs-btn-border-color: var(--bs-btn-border-color);
-  --bs-btn-border-radius: var(--bs-btn-border-radius);
-  --bs-btn-hover-border-color: var(--bs-btn-hover-border-color);
-  --bs-btn-box-shadow: var(--bs-btn-box-shadow);
-  --bs-btn-disabled-opacity: var(--bs-btn-disabled-opacity);
-  --bs-btn-focus-box-shadow: var(--bs-btn-focus-box-shadow);
+button,
+.block.buttons a {
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
   font-family: var(--bs-btn-font-family);
@@ -178,6 +164,14 @@ button {
   border-radius: var(--bs-btn-border-radius);
   background-color: var(--bs-btn-bg);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.block.buttons ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.block.buttons a {
+  margin-bottom: 0.5rem;
 }
 
 .select-list-expand {
@@ -1062,7 +1056,8 @@ main > div > dl img {
 
 :root,
 .btn,
-button {
+button,
+.block.buttons a {
   --bs-btn-font-family: var(--bs-font-sans-serif);
 }
 

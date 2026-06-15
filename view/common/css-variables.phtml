@@ -68,19 +68,28 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 /* Buttons */
 
-:root, .btn, button, .btn-primary {
+:root, .btn, button, .btn-primary, .block.buttons a {
   --bs-border-radius: <?php echo $this->themeSetting('border_radius'); ?>px;
   --bs-btn-color: <?php echo $this->themeSetting('btn_primary'); ?>;
   --bs-btn-bg: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
   --bs-btn-border-color: <?php echo $this->themeSetting('btn_primary_bg'); ?>;
-  --bs-btn-bg-secondary: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
-  --bs-btn-color-secondary: <?php echo $this->themeSetting('btn_secondary'); ?>
 }
 
-.btn-secondary {
-  --bs-btn-color: <?php echo $this->themeSetting('btn_secondary'); ?>;
+.btn:hover, button:hover, .btn-primary:hover, .block.buttons a:hover {
+  --bs-btn-bg: <?php echo $this->themeSetting('btn_primary_bg_hover'); ?>;
+  --bs-btn-color: <?php echo $this->themeSetting('btn_primary_hover'); ?>;
+}
+
+.btn-secondary,
+.block.buttons.secondary a {
   --bs-btn-bg: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
-  --bs-btn-border-color: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
+  --bs-btn-color: <?php echo $this->themeSetting('btn_secondary'); ?>;
+}
+
+.btn-secondary:hover,
+.block.buttons.secondary a:hover {
+  --bs-btn-bg: <?php echo $this->themeSetting('btn_secondary_bg_hover'); ?>;
+  --bs-btn-color: <?php echo $this->themeSetting('btn_secondary_hover'); ?>;
 }
 
 /* Site title */

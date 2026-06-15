@@ -48,7 +48,8 @@ in faceted_browse_horizontal.css */
 }
 
 @media print, screen and (max-width: 39.9988em) {
-  .faceted-browse-page #section-content .tablesaw tr td {
+  .faceted-browse-page #section-content .tablesaw tr td, 
+  .block-facetedBrowsePreview .tablesaw tr td {
     max-width: initial;
   }
 }
@@ -65,14 +66,16 @@ in faceted_browse_horizontal.css */
   text-align: center;
 }
 
-.faceted-browse-page #section-content table .resource-link {
+.faceted-browse-page #section-content table .resource-link, 
+.block-facetedBrowsePreview table .resource-link {
   align-items: start;
   text-decoration: none;
   flex-direction: column;
   text-align: center;
 }
 
-.faceted-browse-page #section-content table .browse-result-metadata .resource-link img {
+.faceted-browse-page #section-content table .browse-result-metadata .resource-link img,
+.block-facetedBrowsePreview table .browse-result-metadata .resource-link img {
   margin-bottom: 12px;
   margin-right: 0;
   width: 100%;

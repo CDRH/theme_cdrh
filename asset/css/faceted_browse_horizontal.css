@@ -50,7 +50,8 @@ in faceted_browse_vertical.css */
 
 
 @media print, screen and (max-width: 39.9988em) {
-  .faceted-browse-page #section-content .tablesaw tr {
+  .faceted-browse-page #section-content .tablesaw tr, 
+  .block-facetedBrowsePreview .tablesaw tr {
     padding: calc(var(--cdrh-card-padding) * 2) 0;
   }
   .faceted-browse-page #section-content .tablesaw tr td {
@@ -90,12 +91,13 @@ in faceted_browse_vertical.css */
 
 @media screen and (min-width: 480px) {
 
-    .tablesaw tbody {
-      display: grid;
-      gap: var(--bs-gutter-y) var(--bs-gutter-x);
-    }
+  .tablesaw tbody {
+    display: grid;
+    gap: var(--bs-gutter-y) var(--bs-gutter-x);
+  }
 
-  .faceted-browse-page #section-content .tablesaw tr {
+  .faceted-browse-page #section-content .tablesaw tr, 
+  .block-facetedBrowsePreview .tablesaw tr {
     border: 1px solid var(--cdrh-border-color);
     border-radius: var(--cdrh-border-radius);
     gap: 0;
@@ -103,12 +105,13 @@ in faceted_browse_vertical.css */
     position: relative;
   }
 
-  .faceted-browse-page #section-content .tablesaw tr:has(img) {
+  .block-facetedBrowsePreview .tablesaw tr:has(img) {
     min-height: calc(var(--cdrh-browse-img-mh) + var(--cdrh-card-padding) + var(--cdrh-card-padding));
     padding-left: calc(var(--cdrh-browse-img-mw) + 1.5rem);
   }
 
-  .faceted-browse-page #section-content .tablesaw .browse-result-metadata .resource-link img {
+  .faceted-browse-page #section-content .tablesaw .browse-result-metadata .resource-link img,
+  .block-facetedBrowsePreview .tablesaw .browse-result-metadata .resource-link img {
     left: var(--cdrh-card-padding);
     margin: 0;
     position: absolute;
@@ -119,6 +122,5 @@ in faceted_browse_vertical.css */
 @media screen and (min-width: 1600px) {
   .tablesaw tbody {
     grid-template-columns: 1fr 1fr;
-
   }
 }

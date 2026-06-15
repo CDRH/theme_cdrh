@@ -362,15 +362,17 @@ button {
 
 // Browse
 
-.browse .resource-list {
+.browse .resource-list,
+.item-set-showcase {
   --bs-gutter-y: 2rem;
 
   margin-top: var(--bs-gutter-y);
 
   .resource {
     margin-bottom: var(--bs-gutter-y);
+    
 
-    .resource-link img {
+    a img {
       max-height: var(--cdrh-browse-img-mh);
       max-width: var(--cdrh-browse-img-mw);
     }
@@ -378,8 +380,9 @@ button {
 }
 
 // List layout
-.browse-layout-default .resource-list .resource-link {
-  &:has(img) > * {
+.browse-layout-default .resource-list,
+.browse-layout-default .item-set-showcase {
+  a:has(img) > * {
     display: inline-block;
   }
   img {
@@ -388,17 +391,21 @@ button {
 }
 
 @media screen and (min-width: 480px) {
-  .browse-layout-default .resource-list .resource-link:has(img) > * {
-    display: initial;
+  .browse-layout-default .resource-list,
+  .browse-layout-default .item-set-showcase {
+      a:has(img) > * {
+      display: initial;
+    }
   }
 }
 
 // All other layouts
 
 body:not(.browse-layout-default) {
-  .resource-list {
+  .resource-list,
+  .item-set-showcase {
 
-    .resource-link img {
+    a img {
       margin-right: var(--bs-gutter-x);
     }
   }
@@ -408,7 +415,8 @@ body:not(.browse-layout-default) {
 .browse-layout-rows,
 .browse-layout-h_gallery,
 .browse-layout-v_gallery {
-  .resource-list {
+  .resource-list,
+  .item-set-showcase {
     border-top: 1px solid var(--cdrh-border-color);
     list-style: none;
     padding-left: 0;
@@ -418,7 +426,7 @@ body:not(.browse-layout-default) {
       margin-bottom: 0;
       padding: var(--bs-gutter-y) var(--cdrh-card-padding);
 
-      .resource-link:has(img) {
+      a:has(img) {
         align-items: center;
         display: flex;
         flex-direction: column;
@@ -430,16 +438,19 @@ body:not(.browse-layout-default) {
 
 // Rows
 @media screen and (min-width: 480px) {
-  .browse-layout-rows .resource-list .resource .resource-link:has(img) {
-    align-items: center;
-    flex-direction: row;
+  .browse-layout-rows .resource-list,
+  .browse-layout-rows .item-set-showcase {
+    .resource a:has(img) {
+      align-items: center;
+      flex-direction: row;
 
-    .resource-name {
-      margin-top: 0;
-    }
+      .resource-name {
+        margin-top: 0;
+      }
 
-    + div {
-      margin-top: calc(var(--bs-gutter-y) * 0.5);
+      + div {
+        margin-top: calc(var(--bs-gutter-y) * 0.5);
+      }
     }
   }
 }
@@ -450,7 +461,8 @@ body:not(.browse-layout-default) {
   .browse-layout-h_gallery,
   .browse-layout-v_gallery {
 
-    .resource-list {
+    .resource-list,
+    .item-set-showcase {
       border: none;
 
       .resource {
@@ -462,7 +474,7 @@ body:not(.browse-layout-default) {
         margin-bottom: var(--bs-gutter-y);
         padding: var(--cdrh-card-padding);
 
-        .resource-link:has(img) {
+        a:has(img) {
           display: flex;
           gap: calc(var(--bs-gutter-y) * 0.5) var(--bs-gutter-x);
         }
@@ -471,27 +483,25 @@ body:not(.browse-layout-default) {
   }
 
   // Horizontal Cards
-  .browse-layout-h_gallery .resource-list {
-
+  .browse-layout-h_gallery .resource-list, 
+  .browse-layout-h_gallery .item-set-showcase {
     .resource {
+        &:has(a img) {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          min-height: calc(var(--cdrh-browse-img-mh) + var(--cdrh-card-padding) + var(--cdrh-card-padding));
+          padding-left: calc(var(--cdrh-browse-img-mw) + 1.5rem);
+          position: relative;
 
-      &:has(.resource-link img) {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        min-height: calc(var(--cdrh-browse-img-mh) + var(--cdrh-card-padding) + var(--cdrh-card-padding));
-        padding-left: calc(var(--cdrh-browse-img-mw) + 1.5rem);
-        position: relative;
+          img {
+            left: var(--cdrh-card-padding);
+            margin: 0;
+            position: absolute;
+            top: var(--cdrh-card-padding);
+          }
 
-        img {
-          left: var(--cdrh-card-padding);
-          margin: 0;
-          position: absolute;
-          top: var(--cdrh-card-padding);
-        }
-      }
-
-      .resource-link {
+      a {
         align-items: start;
         flex-direction: column;
         text-decoration: none;
@@ -505,12 +515,13 @@ body:not(.browse-layout-default) {
     }
   }
 
-  // Vertical Gallery
-  .browse-layout-v_gallery .resource-list {
-    text-align: center;
+    // Vertical Gallery
+    .browse-layout-v_gallery {
+      text-align: center;
 
-    .resource {
-      
+      .resource {
+        
+      }
     }
   }
 }

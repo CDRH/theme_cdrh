@@ -117,7 +117,7 @@ in faceted_browse_vertical.css */
 }
 
 @media screen and (min-width: 1600px) {
-  .faceted-browse-page .tablesaw tbody {
+  .tablesaw tbody {
     grid-template-columns: 1fr 1fr;
 
   }

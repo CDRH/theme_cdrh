@@ -28,11 +28,6 @@
 }
 
 // Bootstrap overrides
-
-:root {
-  --bs-gutter-y: 2rem !important;
-}
-
 :root,
 .btn,
 button,
@@ -40,6 +35,9 @@ button,
   --bs-btn-font-family: var(--bs-font-sans-serif);
 }
 
+.container {
+  --bs-gutter-y: 2rem;
+}
 
 .navbar-nav {
   --bs-nav-link-padding-x: 0.5rem;

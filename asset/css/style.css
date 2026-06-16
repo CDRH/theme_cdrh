@@ -289,7 +289,6 @@ button {
 }
 .browse .resource-list,
 .item-set-showcase {
-  --bs-gutter-y: 2rem;
   margin-top: var(--bs-gutter-y);
 }
 .browse .resource-list .resource,
@@ -436,28 +435,62 @@ body:not(.browse-layout-default) .item-set-showcase a img {
     grid-template-columns: 1fr 1fr;
   }
 }
-main > .container > dl .property {
+main > .container > dl .property,
+.block-itemWithMetadata dl:not(.media-list) .property {
   overflow: hide;
   overflow-wrap: break-word;
   break-inside: avoid-column;
 }
-main > .container > dl .property dt {
+main > .container > dl .property dt,
+.block-itemWithMetadata dl:not(.media-list) .property dt {
   display: inline;
 }
-main > .container > dl .property dt::after {
+main > .container > dl .property dt::after,
+.block-itemWithMetadata dl:not(.media-list) .property dt::after {
   content: ": ";
   margin-left: -0.2em;
 }
-main > .container > dl .property dd {
+main > .container > dl .property dd,
+.block-itemWithMetadata dl:not(.media-list) .property dd {
   display: inline;
 }
-main > .container > dl .property dd:not(:last-child)::after {
+main > .container > dl .property dd:not(:last-child)::after,
+.block-itemWithMetadata dl:not(.media-list) .property dd:not(:last-child)::after {
   content: " | ";
+}
+main > .container > dl.item-sets dt::after,
+.block-itemWithMetadata dl:not(.media-list).item-sets dt::after {
+  margin-left: 0;
+}
+
+.block-itemWithMetadata {
+  margin-bottom: var(--bs-gutter-y);
+}
+.block-itemWithMetadata dl.media-list .property dt {
+  margin-bottom: 1em;
+}
+.block-itemWithMetadata dl.media-list .property .resource-link {
+  align-items: center;
+  display: flex;
+  gap: calc(var(--bs-gutter-y) * 0.5) var(--bs-gutter-x);
+  margin-bottom: var(--bs-gutter-y);
 }
 
 @media screen and (min-width: 768px) {
   main > div > dl:first-of-type {
     columns: 2;
+  }
+  .block-itemWithMetadata dl.media-list .property {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: calc(var(--bs-gutter-x) * 2);
+    justify-content: start;
+  }
+  .block-itemWithMetadata dl.media-list .property dt {
+    width: 100%;
+  }
+  .block-itemWithMetadata dl.media-list .property dd {
+    max-width: 600px;
   }
 }
 main > div > dl img {
@@ -1077,15 +1110,15 @@ main > div > dl img {
   --bs-font-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
 
-:root {
-  --bs-gutter-y: 2rem !important;
-}
-
 :root,
 .btn,
 button,
 .block.buttons a {
   --bs-btn-font-family: var(--bs-font-sans-serif);
+}
+
+.container {
+  --bs-gutter-y: 2rem;
 }
 
 .navbar-nav {

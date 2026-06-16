@@ -18,8 +18,6 @@ in faceted_browse_vertical.css */
 }
 
 .tablesaw tbody {
-  --bs-gutter-y: 2rem;
-
   display: grid;
 }
 

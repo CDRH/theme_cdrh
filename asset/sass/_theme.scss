@@ -349,13 +349,10 @@ button {
 
 .browse .resource-list,
 .item-set-showcase {
-  --bs-gutter-y: 2rem;
-
   margin-top: var(--bs-gutter-y);
 
   .resource {
     margin-bottom: var(--bs-gutter-y);
-    
 
     a img {
       max-height: var(--cdrh-browse-img-mh);
@@ -525,7 +522,8 @@ body:not(.browse-layout-default) {
 // Items
 
 // Metadata box
-main > .container > dl {
+main > .container > dl,
+.block-itemWithMetadata dl:not(.media-list) {
 
     .property {
         overflow: hide;
@@ -549,12 +547,50 @@ main > .container > dl {
             content: " | ";
         }
     }
+
+    &.item-sets dt::after {
+      margin-left: 0;
+    }
 }
 
-@media screen and (min-width: 768px) {
-    main > div > dl:first-of-type {
-        columns: 2;
+.block-itemWithMetadata {
+  margin-bottom: var(--bs-gutter-y);
+  
+  dl.media-list .property {
+
+    dt {
+      margin-bottom: 1em;
     }
+
+    .resource-link {
+      align-items: center;
+      display: flex;
+      gap: calc(var(--bs-gutter-y) * 0.5) var(--bs-gutter-x);
+      margin-bottom: var(--bs-gutter-y);
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  main > div > dl:first-of-type {
+      columns: 2;
+  }
+  
+  .block-itemWithMetadata dl.media-list .property {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: calc(var(--bs-gutter-x) * 2);
+    justify-content: start;
+
+    dt {
+      width: 100%;
+    }
+
+    dd {
+      max-width: 600px;
+    }
+  }
 }
 
 // hide images from metadata

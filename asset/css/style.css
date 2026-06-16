@@ -435,6 +435,10 @@ body:not(.browse-layout-default) .item-set-showcase a img {
     grid-template-columns: 1fr 1fr;
   }
 }
+.page .page-layout-normal .block {
+  margin-bottom: 1rem;
+}
+
 main > .container > dl .property,
 .block-itemWithMetadata dl:not(.media-list) .property {
   overflow: hide;

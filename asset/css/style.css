@@ -1091,6 +1091,7 @@ main > div > dl img {
 :root {
   --cdrh-border-radius: 4px;
   --cdrh-border-color: #CED4DA;
+  --cdrh-border-color-dark: #2b2b2b;
   --cdrh-card-padding: 8px;
   --cdrh-browse-img-mh: 200px;
   --cdrh-browse-img-mw: 150px;

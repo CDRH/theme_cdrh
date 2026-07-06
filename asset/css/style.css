@@ -21,8 +21,11 @@ a:hover {
 }
 
 #main_content {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-bottom: var(--bs-gutter-y);
+  padding-top: var(--bs-gutter-y);
+}
+#main_content:has(> .container > nav.breadcrumbs) {
+  padding-top: calc(var(--bs-gutter-y) * 0.75);
 }
 
 #header {
@@ -121,29 +124,75 @@ nav.top-right ul a:hover {
     padding: 0.25rem 1rem;
   }
 }
-.breadcrumbs + .sub-menu ul {
+.container:has(#accordion_menu) .breadcrumbs,
+.container:has(nav.sub-menu) .breadcrumbs {
+  margin-bottom: calc(var(--bs-gutter-y) * 0.75);
+}
+
+#accordion_menu .sub-menu ul li a {
+  border: 1px solid var(--cdrh-border-color);
+  padding: calc(var(--bs-btn-padding-y) * 1.5);
+}
+#accordion_menu .sub-menu ul li a:hover {
+  background: var(--bs-gray-200);
+  border-color: var(--bs-gray-200);
+  color: var(--bs-link-hover-color);
+}
+#accordion_menu .sub-menu ul li :first-of-type a {
+  margin-top: calc(var(--bs-btn-padding-y));
+}
+
+#accordion_menu,
+.sub-menu.in-this-section {
+  margin-bottom: var(--bs-gutter-y);
+}
+
+.sub-menu.in-this-section ul {
   align-items: start;
   display: flex;
-  flex-direction: column;
-  row-gap: 1px;
+  flex-wrap: wrap;
+  gap: calc(var(--bs-btn-padding-x) * 0.25);
   list-style: none;
-  margin-top: 2rem;
   padding-left: 0;
 }
-.breadcrumbs + .sub-menu ul li a {
-  background-color: #f0f0f0;
+.sub-menu.in-this-section ul li a {
   border: 1px solid var(--cdrh-border-color);
+  border-radius: var(--bs-btn-border-radius);
   color: var(--bs-link-color);
   display: block;
+  font-size: 1rem;
+  line-height: 1.5;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
   text-decoration: none;
 }
-.breadcrumbs + .sub-menu ul li a:hover {
-  background-color: #dddddd;
-  border: 1px solid var(--bs-link-color);
-  color: var(--bs-link-hover-color);
+.sub-menu.in-this-section ul li a:visited {
+  color: var(--bs-link-color);
+}
+.sub-menu.in-this-section ul li a:hover {
+  background-color: var(--bs-btn-bg);
+  color: var(--bs-btn-color);
 }
 
+#accordion_menu .accordion-button {
+  --bs-accordion-btn-padding-x: var(--bs-btn-padding-x);
+  --bs-accordion-btn-padding-y: var(--bs-btn-padding-y);
+  --bs-accordion-button-bg: var(--bs-gray-100);
+}
+#accordion_menu .sub-menu ul {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+#accordion_menu .sub-menu ul li a {
+  color: var(--bs-link-color);
+  display: block;
+  font-size: 1rem;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  text-decoration: none;
+}
 button {
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
@@ -1122,6 +1171,7 @@ button,
   --bs-btn-font-family: var(--bs-font-sans-serif);
 }
 
+:root,
 .container {
   --bs-gutter-y: 2rem;
 }

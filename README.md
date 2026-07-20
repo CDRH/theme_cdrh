@@ -1,6 +1,6 @@
 # Base Theme for CDRH Omeka S Sites
 
-This is a bare-bones Omeka S theme created by the [Center of Digital Research in the Humanities](https://cdrh.unl.edu/) at the [University of Nebraska–Lincoln](https://www.unl.edu/) for use in its projects. 
+This is a base Omeka S theme created by the [Center of Digital Research in the Humanities](https://cdrh.unl.edu/) at the [University of Nebraska–Lincoln](https://www.unl.edu/) for use in its projects. 
 
 ## Important Notes
 - Be sure to make the recommended [application overrides](https://github.com/cdrh/omeka_s_cdrh_theme/blob/main/application-overrides.md) to fix unaddressed accessibility issues that cannot be fixed via the theme.
@@ -21,10 +21,15 @@ This theme works with several Omeka S Modules to build a more robust user experi
 The CDRH Base Theme includes styles for the following modules, but they are not required for the theme to function correctly.
 
   - [Faceted Browse](https://omeka.org/s/modules/FacetedBrowse/): the theme modifies sort and pagination UI and allows for restyling of the table of results to appear as an image gallery.
+  - [Mapping](https://omeka.org/s/modules/Mapping/): the theme modifies the module's CSS to fix accessibility problems with color contrast and font sizes.
 
 ## Usage
 
-This "theme" serves as a starting point for theme development and is not intended as a standalone Omeka S theme. It does not provide a cohesive visual theme with fonts, colors, and graphics; what it does provide, though, is a solid foundation upon which to _build_ a cohesive visual theme specific to your project. All elements and base styles are WCAG 2.1-compliant.
+Though this theme _can_be used as a standalone theme, it is meant to serve as a starting point for project-specific theme development.
+
+### Accessibility
+
+All elements and default styles of this theme are WCAG 2.1-compliant. The theme settings (such as colors) are flexible, however, and can easily introduce accessibility errors. **Anyone creating content, changing theme settings, and/or developing a custom theme on top of this codebase is expected to test their changes for accessibility compliance—and fix all errors—_during_ the editing process (rather than waiting until final review or a future audit).** 
 
 ### Designing a Theme
 

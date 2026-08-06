@@ -1,0 +1,78 @@
+
+/* //////////////////////////
+Search form styles (site-wide)
+/////////////////////////// */
+
+@media screen {
+
+  // Search forms
+  #search-form-wrapper { 
+    flex-direction: column;
+
+    .inputs {
+      padding-top: 4px;
+      
+      input {
+        padding: 6px 10px;
+      }
+
+      div[class*="numeric"] {
+        align-items: stretch;
+      }
+    }
+
+    .label,
+    label {
+      font-weight: 700;
+    }
+
+    #search-form-standard > * { 
+      padding-bottom: 8px;
+      padding-top: 8px;
+    }
+
+    .numeric-date-inputs > * { // Advanced Search?
+      flex-grow: 0;
+      min-width: 165px;
+    }
+
+    // Add and delete buttons
+    .add-value,
+    .search-delete-filter,
+    button[class*="o-icon-"] {
+      background: var(--bs-gray-100);
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      height: initial;
+      padding: 2px 8px;
+      width: initial;
+    }
+
+    // Add Filter and Add Group buttons
+    a.button {
+      background-color: var(--bs-btn-bg);
+      border-radius: 6px;
+      color: var(--bs-btn-color);
+      padding: 5px 10px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: var(--bs-btn-hover-bg);
+      }
+    }
+
+    // Submit button
+    button[type*="submit"] {
+      background: var(--bs-btn-bg);
+      border: 1px solid var(--bs-btn-bg);
+      border-radius: 6px;
+      color: white;
+      margin-top: 20px;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        background: var(--bs-btn-hover-bg);
+        border-color: var(--bs-btn-hover-border-color);
+      }
+    }
+  } // end search results pages/blocks
+} // end @media screen

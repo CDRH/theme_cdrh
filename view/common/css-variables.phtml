@@ -19,12 +19,18 @@ $headingsFont = $this->themeSetting('font_headings');
 :root, [data-bs-theme="light"] {
   --bs-body-bg: <?php echo $this->themeSetting('bg_color'); ?>;
   --bs-body-color: <?php echo $this->themeSetting('text_color'); ?>;
-  --bs-body-font-size: <?php echo $this->themeSetting('font_size'); ?>;
   --bs-primary: <?php echo $this->themeSetting('btn_primary_bg') ?>;
   --bs-secondary: <?php echo $this->themeSetting('btn_secondary_bg'); ?>;
   --cdrh-border-color: <?php echo $this->themeSetting('border_color'); ?>;
   --cdrh-border-radius: <?php echo $this->themeSetting('border_radius'); ?>
 }
+
+<?php if ($this->themeSetting('font_size')): ?>
+  :root {
+    --bs-body-font-size: <?php echo $this->themeSetting('font_size'); ?>;
+  }
+<?php endif; ?>
+
 
 :root, a {
   --bs-link-color: <?php echo $this->themeSetting('link_color'); ?>;

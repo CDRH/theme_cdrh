@@ -1,0 +1,10 @@
+<?php $escape = $this->plugin('escapeHtml'); ?>
+
+<div class="read-more-button">
+  <a class="btn btn-secondary" data-bs-toggle="collapse" href="#readMore" role="button" aria-expanded="false" aria-controls="readMore">
+    Read More
+  </a>
+</div>
+<div class="read-more collapse" id="readMore">
+  <?php echo $block->dataValue('html', ''); ?>
+</div>

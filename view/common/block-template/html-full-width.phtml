@@ -1,0 +1,16 @@
+<?php $escape = $this->plugin('escapeHtml'); ?>
+
+</div> <!-- close .block-html -->
+</div> <!-- close .blocks-inner -->
+</div> <!-- close .blocks -->
+</div> <!-- close .container -->
+
+<div class="blocks">
+  <div class="blocks-inner">
+    <div class="block block-html">
+      <?php echo $block->dataValue('html', ''); ?>
+    </div>
+  </div>
+</div>
+
+<div class="container"> <!-- reopen .container -->

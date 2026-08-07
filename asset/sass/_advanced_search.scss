@@ -54,6 +54,14 @@ Search form styles (site-wide)
     #by-value-label { // Advanced Search
       display: block;
     }
+
+    button[class*="o-icon-"] {
+      background: var(--bs-gray-100);
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      height: initial;
+      padding: 2px 8px;
+      width: initial;
+    }
   } // end search results pages/blocks
 } // end @media screen
 

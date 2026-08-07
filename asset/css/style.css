@@ -1630,6 +1630,14 @@ Search form styles (site-wide)
   .search-results-wrapper #by-value-label {
     display: block;
   }
+  #advanced-search button[class*=o-icon-],
+  .search-results-wrapper button[class*=o-icon-] {
+    background: var(--bs-gray-100);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    height: initial;
+    padding: 2px 8px;
+    width: initial;
+  }
 }
 /* /////////////////////
 Advanced Search elements

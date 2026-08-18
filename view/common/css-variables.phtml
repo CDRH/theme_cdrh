@@ -31,7 +31,6 @@ $headingsFont = $this->themeSetting('font_headings');
   }
 <?php endif; ?>
 
-
 :root, a {
   --bs-link-color: <?php echo $this->themeSetting('link_color'); ?>;
 }
@@ -98,6 +97,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .block.buttons.secondary a:hover {
   --bs-btn-bg: <?php echo $this->themeSetting('btn_secondary_bg_hover'); ?>;
   --bs-btn-color: <?php echo $this->themeSetting('btn_secondary_hover'); ?>;
+}
+
+/* Header */
+header {
+  background-color: <?php echo $this->themeSetting('header_bg'); ?>;
 }
 
 /* Site title */
@@ -260,13 +264,23 @@ nav.top-right ul a:hover {
     display: none;
   }
 
+  .search-page .resource-thumbnail {
+    display: none;
+  }
+
+  .search-page .search-results-count-total {
+    display: none;
+  }
+
   @media screen and (min-width: 480px) {
-    .faceted-browse-page.horizontal-gallery #section-content table tr {
+    .faceted-browse-page.horizontal-gallery #section-content table tr,
+    #advanced-search-form-wrapper + .search-results-wrapper .search-results-list .resource-list.grid .resource {
       min-height: initial;
       padding: calc(var(--cdrh-card-padding) * 3);
       padding-top: 0;
     }
   }
+  
 <?php endif; ?>
 
 </style>

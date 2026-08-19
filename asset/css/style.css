@@ -1308,6 +1308,7 @@ button,
 }
 
 :root,
+a,
 .btn,
 button {
   --bs-btn-padding-x: 0.75rem;
@@ -1327,6 +1328,7 @@ button {
 }
 
 :root,
+a,
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0;
@@ -1351,6 +1353,7 @@ button {
 }
 
 :root,
+a,
 .navbar-nav {
   --bs-nav-link-font-weight: ;
   --bs-nav-link-color: var(--bs-navbar-color);

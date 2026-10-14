@@ -30,7 +30,16 @@ $showPagePagination = $this->siteSetting('show_page_pagination', true);
 <?php endif; ?>
 
 <?php $this->trigger('view.show.before'); ?>
-<p style="font-size: 48pt; font-weight: bold;">This is the page template called "Page Template Example."</p>
+<p class="h1">This is the page template called "Page Template Example."</p>
+<ul>
+	<li>This page uses an example page template called &quot;Page Template Example.&quot;</li>
+	<li>The template file is located in the theme&#39;s view folder: <a draggable="false" href="https://github.com/CDRH/theme_cdrh/tree/dev/view/common/page-template">/view/common/page-template/page-template-example.phtml</a></li>
+	<li>The template is registered in the theme&#39;s config file, <a draggable="false" href="https://github.com/CDRH/theme_cdrh/blob/a254059aa3d950f15c36aff8177c10f37fc91129/config/theme.ini#L735">config/theme.ini</a>, as:
+	<pre>
+page_templates.page-template-example = &quot;Page Template Example&quot;</pre>
+	</li>
+	<li>This page has the Page Template Example selected (click the gears icon next to &quot;Layout: Normal flow&quot; to show the dropdown for page templates).</li>
+</ul>
 <div class="blocks">
     <?php echo $this->content; ?>
 </div>

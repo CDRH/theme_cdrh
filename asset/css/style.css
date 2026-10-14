@@ -20,18 +20,19 @@ blockquote {
   margin: 0 2rem 1rem 2rem;
 }
 
-pre {
-  background: #eeeeee;
-  padding: 1px 5px;
-}
-
 li > pre {
   display: inline-block;
   margin-top: 1rem;
 }
 
+pre {
+  background: #eeeeee;
+  padding: 1px 5px;
+}
+
 .code {
   display: inline;
+  font-family: var(--bs-font-monospace);
 }
 
 #main_content {

@@ -26,13 +26,16 @@ li > pre {
 }
 
 pre {
-  background: #eeeeee;
+  background: #e6e6e6;
   padding: 1px 5px;
 }
 
 .code {
+  background: #e6e6e6;
   display: inline;
   font-family: var(--bs-font-monospace);
+  font-size: 0.9em;
+  padding: 1px 2px;
 }
 
 #main_content {

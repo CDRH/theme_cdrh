@@ -12,10 +12,6 @@
 
 // General styles
 
-blockquote {
-  margin: 0 2rem 1rem 2rem;
-}
-
 a {
   color: var(--bs-link-color);
   opacity: 1;
@@ -23,6 +19,20 @@ a {
   &:hover {
     text-decoration-thickness: var(--cdrh-text-decoration-thickness);
   }
+}
+
+blockquote {
+  margin: 0 2rem 1rem 2rem;
+}
+
+pre {
+  background: #eeeeee;
+  padding: 1px 5px;
+}
+
+li > pre {
+  display: inline-block;
+  margin-top: 1rem;
 }
 
 // Main

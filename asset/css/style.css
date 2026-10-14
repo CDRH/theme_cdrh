@@ -30,6 +30,10 @@ li > pre {
   margin-top: 1rem;
 }
 
+.code {
+  display: inline;
+}
+
 #main_content {
   padding-bottom: var(--bs-gutter-y);
   padding-top: var(--bs-gutter-y);

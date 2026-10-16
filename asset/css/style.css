@@ -124,6 +124,7 @@ nav.top-right ul a:hover {
 @media screen and (min-width: 768px) {
   #navbarMainMenu .navbar-nav {
     height: var(--cdrh-navbar-height);
+    line-height: 1;
   }
   #navbarMainMenu .navbar-nav:has(li.active ul) {
     margin-bottom: var(--cdrh-navbar-secondary-height);

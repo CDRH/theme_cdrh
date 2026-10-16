@@ -155,6 +155,7 @@ nav.top-right ul {
   #navbarMainMenu {
     .navbar-nav {
       height: var(--cdrh-navbar-height);
+      line-height: 1;
 
       &:has(li.active ul) {
         margin-bottom: var(--cdrh-navbar-secondary-height);

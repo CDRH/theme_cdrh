@@ -40,3 +40,13 @@ Since this theme is built on Bootstrap version 5.3, you can also refer to the of
 The information you will find in this README is specific to this theme and its customizations of Bootstrap 5.3.
 
 (to be continued)
+
+# Blocks
+
+## Headings and Page Title
+For headings, it's recommended to use the Heading block, but you can also add headings inside an HTML block by clicking inside the block, and then, in the text formatting popup, choosing one from the paragraph format dropdown ("Normal" is usually selected).
+
+Accessibility notes:
+- **There should be ONE and ONLY ONE Heading 1 (`<h1>`) on every page**, whether it is added via the Page Title block (default), via a Heading Block with level 1, or via applying the Heading 1 style to text in an HTML block.
+- **DO NOT use headings just to make text larger.** If the text is not _truly_ a heading, but you want it to be large in size, use [Bootstrap's CSS classes that mimic headings](http://getbootstrap.com/docs/5.3/utilities/text/#font-size) (e.g. `<p class="h1">My Heading-like text here</p`>`), or Bootstrap CSS classes that [control font size](http://getbootstrap.com/docs/5.3/utilities/text/#font-size).
+- Try to nest your headings without skipping levels. (In other words, you should not have an h4 come after an h2 with no h3 between.) This is an accessibility best practice and aids in readability. If you don't like the visual appearance when the headings are nested correctly, use the Bootstrap classes linked above to change the font size(s).

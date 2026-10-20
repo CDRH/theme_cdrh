@@ -10,8 +10,7 @@
   }
 }
 
-// General styles
-
+// Links
 a {
   color: var(--bs-link-color);
   opacity: 1;
@@ -21,10 +20,28 @@ a {
   }
 }
 
+// Blockquote
 blockquote {
   margin: 0 2rem 1rem 2rem;
 }
 
+// Make sure that if you add a Bootstrap .h* class to a Heading block, it supersedes the usual size of the heading tag inside it
+.block-Heading {
+  &.h1,
+  &.h2,
+  &.h3,
+  &.h4,
+  &.h5,
+  &.h6 {
+  h2, h3, h4, h5, h6 {
+    &:first-child {
+      font-size: inherit !important;
+    }
+  }
+}
+}
+
+// Code
 li > pre {
   display: inline-block;
   margin-top: 1rem;
@@ -44,7 +61,7 @@ pre {
 }
 
 
-// Main
+// Main content wrapper(s)
 
 #main_content {
   padding-bottom: var(--bs-gutter-y);
@@ -643,9 +660,15 @@ body:not(.browse-layout-default) {
   margin-bottom: 1rem;
 }
 
-.block-lineBreak .break {
-  margin: 3rem 0;
-} 
+// Block - Line Break
+.block-lineBreak .break.opaque {
+  margin: 2.5rem 0;
+}
+
+.block-lineBreak .break.transparent {
+  margin: 1.5rem 0;
+}
+
 
 // Items
 
@@ -725,3 +748,4 @@ main > .container > dl,
 main > div > dl img {
     display: none;
 }
+

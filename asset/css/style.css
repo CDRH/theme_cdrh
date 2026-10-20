@@ -507,6 +507,10 @@ body:not(.browse-layout-default) .item-set-showcase a img {
   margin-bottom: 1rem;
 }
 
+.block-lineBreak .break {
+  margin: 3rem 0;
+}
+
 main > .container > dl .property,
 .block-itemWithMetadata dl:not(.media-list) .property {
   overflow: hide;
